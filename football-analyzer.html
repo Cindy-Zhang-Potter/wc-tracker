@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2.0.17 受让方筛选</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.5}
+.hdr{background:linear-gradient(135deg,#1a237e,#0d47a1);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hdr h1{font-size:18px;color:#fff}
+.hdr .sub{font-size:12px;color:#90caf9}
+.hdr .sts{font-size:11px;color:#64b5f6;background:rgba(255,255,255,.1);padding:3px 10px;border-radius:10px}
+.ctn{max-width:1100px;margin:0 auto;padding:14px}
+.btns{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.btns button{padding:7px 14px;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600}
+.b1{background:#1976d2;color:#fff}.b2{background:#37474f;color:#fff}.b3{background:#2e7d32;color:#fff}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;margin-bottom:14px;overflow:hidden}
+.card.ok{border-left:3px solid #52c41a}.card.no{border-left:3px solid #555}
+.card-h{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;background:#1c2129}
+.m-info{display:flex;align-items:center;gap:10px}
+.m-lc{font-size:10px;color:#58a6ff;background:rgba(56,139,253,.1);padding:2px 7px;border-radius:8px}
+.m-t{font-size:11px;color:#7d8590}
+.teams{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700}
+.teams .vs{color:#7d8590;font-size:12px}
+.rk{font-size:10px;color:#8b949e;background:#21262d;padding:1px 5px;border-radius:3px}
+.bdg{font-size:10px;padding:3px 9px;border-radius:8px;font-weight:600}
+.bdg.ok{background:#1b4332;color:#52c41a}.bdg.no{background:#2d1b1b;color:#f85149}.bdg.w{background:#1c2129;color:#7d8590}
+.stars{color:#fadb14;font-size:14px}
+.card-b{padding:0 16px 14px}
+.sec{margin-top:12px}
+.sec-t{font-size:11px;color:#7d8590;font-weight:600;margin-bottom:6px}
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.ig label{font-size:10px;color:#8b949e}
+.ig input,.ig select{background:#21262d;border:1px solid #30363d;border-radius:5px;padding:6px 8px;color:#e6edf3;font-size:12px;width:100%}
+.abtn{padding:8px 20px;border:none;border-radius:6px;background:linear-gradient(135deg,#1565c0,#0d47a1);color:#fff;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+.rp{margin-top:12px;display:none;background:#0d1117;border:1px solid #30363d;border-radius:6px}
+.rp.show{display:block}
+.rp-h{padding:10px 14px;background:#1c2129;display:flex;align-items:center;justify-content:space-between}
+.rv.pass{color:#52c41a}.rv.fail{color:#f85149}
+.rp-b{padding:10px 14px}
+.rl{list-style:none}
+.ri{display:flex;gap:6px;font-size:11px;padding:3px 6px;border-radius:3px;margin-bottom:2px}
+.ri.pass{background:rgba(46,125,50,.08);color:#81c784}
+.ri.fail{background:rgba(244,67,54,.08);color:#ef9a9a}
+.ri.skip{color:#555}
+.ri .rid{font-weight:700;min-width:22px}
+.ri .rn{font-weight:500}
+.ri .rd{color:#7d8590;margin-left:2px}
+.bonus{margin-top:8px;padding:6px 10px;background:rgba(250,219,20,.06);border:1px solid rgba(250,219,20,.12);border-radius:5px;font-size:11px;color:#fadb14}
+.sum{margin-top:16px;background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;display:none}
+.sum h2{font-size:15px;margin-bottom:10px;color:#58a6ff}
+.st{width:100%;border-collapse:collapse;font-size:12px}
+.st th{text-align:left;padding:6px 8px;background:#1c2129;color:#7d8590;font-size:10px;border-bottom:1px solid #30363d}
+.st td{padding:6px 8px;border-bottom:1px solid #21262d}
+.st tr.ok{background:rgba(46,125,50,.06)}
+.info-box{background:#1c2129;border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:12px;line-height:1.7}
+.info-box b{color:#58a6ff}
+#summary-box{margin-bottom:12px}
+.loading{text-align:center;padding:30px;color:#58a6ff}
+.loading::after{content:'';display:inline-block;width:16px;height:16px;border:2px solid #30363d;border-top:2px solid #58a6ff;border-radius:50%;animation:spin 1s linear infinite;margin-left:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:640px){.ig{grid-template-columns:1fr 1fr}.teams{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div><h1>⚽ 受让方筛选 V2.0.17</h1><div class="sub">37条规则全自动判定</div></div>
+  <div class="sts" id="st">加载中...</div>
+</div>
+<div class="ctn">
+  <div class="btns">
+    <button class="b1" onclick="load()">🔄 加载</button>
+    <button class="b2" onclick="allAnalyze()">⚡ 全部分析</button>
+    <button class="b3" onclick="doExport()">📊 导出</button>
+  </div>
+  <div id="ml"><div class="loading">正在加载数据...</div></div>
+  <div class="sum" id="sum"><h2>📊 汇总：推荐受让方</h2><div id="sumc"></div></div>
+</div>
+
+<script>
+const M=[],A=[];
+
+// ==================== 队名映射 ====================
+const TM={'France':'法国','Argentina':'阿根廷','Brazil':'巴西','Germany':'德国','Spain':'西班牙','England':'英格兰','Portugal':'葡萄牙','Netherlands':'荷兰','Belgium':'比利时','Croatia':'克罗地亚','Morocco':'摩洛哥','Japan':'日本','South Korea':'韩国','Mexico':'墨西哥','USA':'美国','United States':'美国','Colombia':'哥伦比亚','Ecuador':'厄瓜多尔','Uruguay':'乌拉圭','Senegal':'塞内加尔','Cameroon':'喀麦隆','Ghana':'加纳','Nigeria':'尼日利亚','Tunisia':'突尼斯','Egypt':'埃及','Algeria':'阿尔及利亚','Australia':'澳大利亚','Saudi Arabia':'沙特阿拉伯','Iran':'伊朗','Qatar':'卡塔尔','Iraq':'伊拉克','Jordan':'约旦','Canada':'加拿大','Panama':'巴拿马','Haiti':'海地','Switzerland':'瑞士','Turkey':'土耳其','Sweden':'瑞典','Norway':'挪威','Denmark':'丹麦','Poland':'波兰','Czech Republic':'捷克','Austria':'奥地利','Italy':'意大利','Scotland':'苏格兰','Wales':'威尔士','Iceland':'冰岛','Finland':'芬兰','New Zealand':'新西兰','Curacao':'库拉索','DR Congo':'刚果民主共和国','Cape Verde':'佛得角','Bosnia and Herzegovina':'波黑','Bosnia & Herzegovina':'波黑','Ivory Coast':'科特迪瓦','Cote d\'Ivoire':'科特迪瓦','Côte d\'Ivoire':'科特迪瓦','Uzbekistan':'乌兹别克斯坦','Bahrain':'巴林','Honduras':'洪都拉斯','Serbia':'塞尔维亚','Ukraine':'乌克兰','Ireland':'爱尔兰','Paraguay':'巴拉圭','Chile':'智利','Peru':'秘鲁','Costa Rica':'哥斯达黎加','Jamaica':'牙买加','Honduras':'洪都拉斯','South Africa':'南非','Indonesia':'印尼','China':'中国','Bolivia':'玻利维亚','Venezuela':'委内瑞拉','Cuba':'古巴','Mali':'马里','Burkina Faso':'布基纳法索','Guinea':'几内亚','DR Congo':'刚果民主共和国','Guinea-Bissau':'几内亚比绍','Equatorial Guinea':'赤道几内亚','Central African Rep.':'中非','Gambia':'冈比亚','Comoros':'科摩罗','Libya':'利比亚','Sudan':'苏丹','Togo':'多哥','Benin':'贝宁','Mozambique':'莫桑比克','Madagascar':'马达加斯加','Zambia':'赞比亚','Zimbabwe':'津巴布韦','Namibia':'纳米比亚','Angola':'安哥拉','Tanzania':'坦桑尼亚','Uganda':'乌干达','Kenya':'肯尼亚','Ethiopia':'埃塞俄比亚','Somalia':'索马里','Rwanda':'卢旺达','Burundi':'布隆迪','Congo':'刚果','Gabon':'加蓬','Guinea':'几内亚','Sierra Leone':'塞拉利昂','Liberia':'利比里亚','Ivory Coast':'科特迪瓦','Mauritania':'毛里塔尼亚','Niger':'尼日尔','Chad':'乍得','Malawi':'马拉维','Lesotho':'莱索托','Eswatini':'斯威士兰','Botswana':'博茨瓦纳'};
+function toCN(en){return TM[en]||en;}
+
+// ==================== 数据加载 ====================
+async function load(){
+  const el=document.getElementById('ml');
+  el.innerHTML='<div class="loading">加载中...</div>';
+  document.getElementById('st').textContent='加载中...';
+  try{
+    const [dR,oR]=await Promise.all([fetch('/api/dqd'),fetch('/api/odds')]);
+    const dD=await dR.json(),oD=await oR.json();
+    const dqdR={};
+    (dD.list||[]).forEach(m=>{dqdR[m.team_A_name]=m.rank_A;dqdR[m.team_B_name]=m.rank_B;});
+    M.length=0;
+    (oD||[]).forEach(match=>{
+      const hN=toCN(match.home_team),aN=toCN(match.away_team);
+      let pin=null,all=[];
+      (match.bookmakers||[]).forEach(bm=>(bm.markets||[]).forEach(mk=>{
+        if(mk.key==='spreads'){
+          const ho=mk.outcomes.find(o=>o.name===match.home_team),ao=mk.outcomes.find(o=>o.name===match.away_team);
+          if(ho&&ao){all.push({p:ho.point,hp:ho.price,ap:ao.price});if(bm.title==='Pinnacle')pin={p:ho.point,hp:ho.price,ap:ao.price};}
+        }
+      }));
+      const od=pin||(all.length?{p:Math.round(all.reduce((s,x)=>s+x.p,0)/all.length*4)/4,hp:all.reduce((s,x)=>s+x.hp,0)/all.length,ap:all.reduce((s,x)=>s+x.ap,0)/all.length}:null);
+      let hH=0,hA=0,hC=0;
+      (match.bookmakers||[]).forEach(bm=>(bm.markets||[]).forEach(mk=>{
+        if(mk.key==='h2h'){const h=mk.outcomes.find(o=>o.name===match.home_team),a=mk.outcomes.find(o=>o.name===match.away_team);if(h&&a){hH+=h.price;hA+=a.price;hC++;}}
+      }));
+      let hot='';
+      if(hC>0){const pH=1/(hH/hC),pA=1/(hA/hC);hot=Math.round(Math.max(pH,pA)/(pH+pA)*100);}
+      const dt=match.commence_time?match.commence_time.split('T'):['',''];
+      M.push({id:match.id,tA:hN,tB:aN,rA:dqdR[hN]||'',rB:dqdR[aN]||'',date:dt[0],time:(dt[1]||'').substring(0,5),
+        hdp:od?od.p:'',wH:od?(od.hp-1).toFixed(2):'',wA:od?(od.ap-1).toFixed(2):'',
+        hot,fA:'',fB:'',pA:'neutral',pB:'neutral',neg:'none',pull:'none',heat:'none'});
+    });
+    render();
+    document.getElementById('st').textContent=`✅ ${M.length}场`;
+  }catch(e){el.innerHTML=`<div style="color:#f85149">加载失败: ${e.message}</div>`;document.getElementById('st').textContent='失败';}
+}
+
+// ==================== 渲染 ====================
+function render(){
+  const el=document.getElementById('ml');
+  if(!M.length){el.innerHTML='<div style="padding:20px;color:#7d8590">暂无比赛</div>';return;}
+  el.innerHTML=M.map((m,i)=>`
+    <div class="card" id="c${i}">
+      <div class="card-h">
+        <div class="m-info"><span class="m-lc">世界杯</span><span class="m-t">${m.date} ${m.time}</span></div>
+        <span class="bdg w" id="b${i}">待分析</span>
+      </div>
+      <div class="card-b">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div class="teams">${m.tA}${m.rA?` <span class="rk">#${m.rA}</span>`:''} <span class="vs">vs</span> ${m.tB}${m.rB?` <span class="rk">#${m.rB}</span>`:''}</div>
+          <span class="stars" id="s${i}"></span>
+        </div>
+        <div id="ib${i}"></div>
+        <div class="sec"><div class="sec-t">盘口/水位/热度</div>
+          <div class="ig">
+            <div><label>让球盘口</label><input type="number" step="0.25" id="h${i}" value="${m.hdp}" placeholder="-1, -1.5" onchange="M[${i}].hdp=this.value;updInfo(${i})"></div>
+            <div><label>让球方水位</label><input type="number" step="0.01" id="wh${i}" value="${m.wH}" placeholder="0.90" onchange="M[${i}].wH=this.value;updInfo(${i})"></div>
+            <div><label>受让方水位</label><input type="number" step="0.01" id="wa${i}" value="${m.wA}" placeholder="0.88" onchange="M[${i}].wA=this.value;updInfo(${i})"></div>
+            <div><label>让球方投注%</label><input type="number" id="ht${i}" value="${m.hot}" placeholder="78" onchange="M[${i}].hot=this.value"></div>
+          </div>
+        </div>
+        <div class="sec"><div class="sec-t">让球方利空</div>
+          <select id="ng${i}" onchange="M[${i}].neg=this.value"><option value="none">❌ 无利空</option><option value="minor">⚠️ 1-2人伤停</option><option value="major">🔴 核心缺阵/轮换≥3人</option></select>
+        </div>
+        <div class="sec"><div class="sec-t">受让方拉力</div>
+          <select id="pl${i}" onchange="M[${i}].pull=this.value"><option value="none">✅ 拉力在线</option><option value="single">⚠️ 单项缺失</option><option value="severe">🔴 全面缺失</option></select>
+        </div>
+        <div class="sec"><div class="sec-t">造热迹象</div>
+          <select id="ht${i}2" onchange="M[${i}].heat=this.value"><option value="none">❌ 无造热</option><option value="slight">⚠️ 略有背离</option><option value="obvious">🔴 明显造热</option></select>
+        </div>
+        <button class="abtn" onclick="doAnalyze(${i})">🔍 分析</button>
+        <div class="rp" id="rp${i}"></div>
+      </div>
+    </div>
+  `).join('');
+  M.forEach((_,i)=>updInfo(i));
+}
+
+function updInfo(i){
+  const m=M[i],el=document.getElementById('ib'+i);
+  if(!el)return;
+  const h=parseFloat(m.hdp);if(isNaN(h)||h===0){el.innerHTML='';return;}
+  const wh=parseFloat(m.wH),wa=parseFloat(m.wA);
+  const absH=Math.abs(h),hS=absH%1===0?absH+'球':absH+'球';
+  let fav,ud,fw,uw;
+  if(h<0){fav=m.tA;ud=m.tB;fw=wh;uw=wa;}else{fav=m.tB;ud=m.tA;fw=wa;uw=wh;}
+  const hot=parseInt(m.hot);
+  el.innerHTML=`<div class="info-box">
+    <b>📋 盘口</b>：${fav} 让 ${hS}（${fav}需赢${Math.ceil(absH)}球以上才算赢盘）<br>
+    <b>🟢 受让方</b>：${ud} 自带 +${hS} 优势<br>
+    <b>💧 水位</b>：让球方 ${!isNaN(fw)?fw.toFixed(2):'-'} ｜ 受让方 ${!isNaN(uw)?uw.toFixed(2):'-'}（核心区间0.85~0.95）${!isNaN(hot)?`<br><b>📊 热度</b>：${fav}占 ${hot}%${hot>=80?' ⚠️':''}`:''}<br>
+    <span style="color:#fadb14">👉 如推荐：买 ${ud}</span>
+  </div>`;
+}
+
+// ==================== V2.0.17 规则引擎 ====================
+function pF(s){if(!s)return{w:0,d:0,l:0,t:0,wr:0,wl:false,nb:false};const w=+(s.match(/(\d+)\s*胜/)||[])[1]||0,d=+(s.match(/(\d+)\s*平/)||[])[1]||0,l=+(s.match(/(\d+)\s*负/)||[])[1]||0,t=w+d+l||1;return{w,d,l,t,wr:w/t,wl:w===0,nb:l===0};}
+
+function doAnalyze(i){
+  const m=M[i],rules=[];
+  let pass=true,elim='',baseStar=0,finalStar=0;
+  const hdp=parseFloat(m.hdp),wH=parseFloat(m.wH),wA=parseFloat(m.wA),hot=parseInt(m.hot);
+  const fA=pF(m.fA),fB=pF(m.fB);
+  // 判定让球方/受让方
+  let favForm,udForm,favName,udName;
+  if(hdp<0){favForm=fB;udForm=fA;favName=m.tB;udName=m.tA;}
+  else{favForm=fA;udForm=fB;favName=m.tA;udName=m.tB;}
+  const absH=Math.abs(hdp);
+  const deep=absH>=1&&absH<=1.5;
+  const wAok=!isNaN(wA)&&wA>=0.85&&wA<=0.95;
+  const wAwiden=!isNaN(wA)&&wA>=0.82&&wA<=0.98;
+  const isNeg=m.neg!=='none';
+
+  // ===== 规则1: 联赛纳入 =====
+  rules.push({id:1,n:'联赛纳入',p:true,d:'世界杯 ✅'});
+
+  // ===== 规则2: 数据校验 =====
+  const dOk=m.tA&&m.tB&&m.date;
+  rules.push({id:2,n:'数据校验',p:dOk,d:dOk?'对阵信息完整':'❌ 数据不完整'});
+  if(!dOk){pass=false;elim='规则2: 数据不完整';}
+
+  // ===== 规则3: 盘口判定 =====
+  const isZero=isNaN(hdp)||hdp===0;
+  rules.push({id:3,n:'盘口判定(机械化符号)',p:!isZero,d:isZero?'❌ 平手盘剔除':(hdp<0?`主队${m.tA}受让 ${hdp}`:`客队${m.tB}受让 +${absH}`)});
+  if(isZero&&pass){pass=false;elim='规则3: 平手盘';}
+
+  // ===== 规则4: 弱势方初盘升让+临场降盘 =====
+  rules.push({id:4,n:'弱势方升让+临场降盘',p:true,d:'✅ 无降盘迹象（需历史数据复核）'});
+
+  // ===== 规则5: 状态型无拉力 =====
+  const r5pass=!(udForm.wl&&udForm.t>=5&&m.pB==='neutral'&&m.pA==='neutral');
+  rules.push({id:5,n:'受让方状态型无拉力',p:r5pass,d:r5pass?'✅':'❌ 连续不胜+进球荒+无战意'});
+  if(!r5pass&&pass){pass=false;elim='规则5: 受让方无拉力';}
+
+  // ===== 规则6: 基本面过度吻合 =====
+  const r6=favForm.wr>=0.6&&(udForm.wr<=0.3||udForm.wl)&&absH>=1.5&&!isNeg;
+  rules.push({id:6,n:'基本面过度吻合',p:!r6,d:r6?'❌ 让球方火爆+受让方低迷+深让+无利空 → 剔除':'✅'});
+  if(r6&&pass){pass=false;elim='规则6: 基本面过度吻合';}
+
+  // ===== 规则7: 水位区间 =====
+  const r7=wAok||isNaN(wA);
+  rules.push({id:7,n:'受让方水位0.85-0.95',p:r7,d:isNaN(wA)?'未填写':(r7?`✅ ${wA}`:`❌ ${wA} 不在区间`)});
+  if(!r7&&pass){pass=false;elim='规则7: 水位不在0.85-0.95';}
+
+  // ===== 规则8: 深让盘-让球方利空 =====
+  if(deep){
+    const r8=isNeg;
+    rules.push({id:8,n:'[深让]让球方实质利空',p:r8,d:r8?'✅ 有利空':'❌ 无利空，深让盘不可入场'});
+    if(!r8&&pass){pass=false;elim='规则8: 深让盘无利空';}
+  }else{rules.push({id:8,n:'[深让]让球方利空',p:true,s:true,d:'非深让盘，跳过'});}
+
+  // ===== 规则9: 深让盘-受让方拉力 =====
+  if(deep){
+    const r9=m.pull!=='severe';
+    rules.push({id:9,n:'[深让]受让方拉力',p:r9,d:r9?'✅':'❌ 受让方全面缺失拉力'});
+    if(!r9&&pass){pass=false;elim='规则9: 深让盘受让方无拉力';}
+  }else{rules.push({id:9,n:'[深让]受让方拉力',p:true,s:true,d:'非深让盘，跳过'});}
+
+  // ===== 规则10: 受让方基础准入(核心水位) =====
+  let r10=true,r10d='';
+  if(!isNaN(wA)){
+    if(wAok){r10d=`✅ 核心区间 ${wA}`;}
+    else if(wAwiden){r10d=`⚠️ 极值区间 ${wA}`;if(!isNeg)r10=false;}
+    else{r10=false;r10d=`❌ ${wA} 超出容忍`;}
+  }else{r10d='未填写';}
+  rules.push({id:10,n:'受让方水位准入',p:r10,d:r10d});
+  if(!r10&&pass){pass=false;elim='规则10: 水位不合规';}
+
+  // ===== 规则11: 水位支撑(投注量) =====
+  let r11=true,r11d='';
+  if(!isNaN(hot)){
+    if(hot>=80){r11d=`让球方${hot}%≥80%，需水位仍在核心区间`;r11=wAok||isNaN(wA);}
+    else{r11d=`让球方${hot}%<80%，正常`;}
+  }else{r11d='未填写';}
+  rules.push({id:11,n:'水位支撑(投注量)',p:r11,d:r11d});
+  if(!r11&&pass){pass=false;elim='规则11: 热度高+水位不在区间';}
+
+  // ===== 规则12: 水位>0.95需利空 =====
+  if(!isNaN(wA)&&wA>0.95){
+    const r12=isNeg;
+    rules.push({id:12,n:'水位>0.95需利空',p:r12,d:r12?'✅':'❌ 无利空'});
+    if(!r12&&pass){pass=false;elim='规则12: 水位>0.95无利空';}
+  }else{rules.push({id:12,n:'水位>0.95需利空',p:true,s:true,d:'水位≤0.95，不触发'});}
+
+  // ===== 规则13: 临场涨幅校验 =====
+  if(!isNaN(wA)&&wA>=0.85&&wA<=0.95){
+    const r13=m.heat!=='obvious';
+    rules.push({id:13,n:'临场涨幅校验',p:r13,d:r13?'✅ 无异常涨幅':'❌ 异常涨幅'});
+    if(!r13&&pass){pass=false;elim='规则13: 临场涨幅异常';}
+  }else{rules.push({id:13,n:'临场涨幅校验',p:true,s:true,d:'水位不在0.85-0.95，跳过'});}
+
+  // ===== 规则14: 水位<0.85波动 =====
+  if(!isNaN(wA)&&wA<0.85){
+    const r14=m.heat!=='obvious';
+    rules.push({id:14,n:'水位<0.85波动',p:r14,d:r14?'✅':'❌ 低水位异常波动'});
+    if(!r14&&pass){pass=false;elim='规则14: 低水位波动';}
+  }else{rules.push({id:14,n:'水位<0.85波动',p:true,s:true,d:'水位≥0.85，跳过'});}
+
+  // ===== 规则15: 多线+客场+轮换 =====
+  const r15=!(m.pull==='severe');
+  rules.push({id:15,n:'多线+客场+轮换',p:r15,d:r15?'✅':'🔴 体力/轮换问题'});
+  if(!r15&&pass){pass=false;elim='规则15: 受让方多线疲劳';}
+
+  // ===== 规则16: 双方战意全无 =====
+  const r16=!(m.pA==='neutral'&&m.pB==='neutral');
+  rules.push({id:16,n:'双方战意全无',p:r16,d:r16?'✅':'❌ 双方均无压力，剔除'});
+  if(!r16&&pass){pass=false;elim='规则16: 双方战意全无';}
+
+  // ===== 规则17: 客场体力透支 =====
+  const r17=m.pull!=='severe';
+  rules.push({id:17,n:'客场体力透支',p:r17,d:r17?'✅':'🔴 存在体力透支'});
+  if(!r17&&pass){pass=false;elim='规则17: 体力透支';}
+
+  // ===== 规则24-26: 热度-水位背离(硬性门槛) =====
+  let heatGate=false;
+  if(!isNaN(hot)&&!isNaN(wA)){
+    const r24=hot>=75;
+    const r25=m.heat==='obvious'||m.heat==='slight';
+    const r26=wAok;
+    heatGate=r24&&r25&&r26;
+    rules.push({id:24,n:'让球方投注≥75%',p:r24,d:`${hot}% ${r24?'✅':'❌'}`,s:isNaN(hot)});
+    rules.push({id:25,n:'水位走高/造热迹象',p:r25,d:m.heat==='obvious'?'🔴 明显造热':(m.heat==='slight'?'⚠️ 略有背离':'❌ 无造热迹象'),s:m.heat==='none'});
+    rules.push({id:26,n:'受让方水位稳定',p:r26,d:r26?'✅ 0.85-0.95稳定':'❌ 不在区间'});
+  }else{
+    rules.push({id:24,n:'让球方投注≥75%',p:false,s:true,d:'未填投注量'});
+    rules.push({id:25,n:'水位走高/造热迹象',p:false,s:true,d:'未填造热信息'});
+    rules.push({id:26,n:'受让方水位稳定',p:false,s:true,d:'未填水位'});
+  }
+  // 硬性门槛：不满足直接淘汰
+  if(!heatGate&&pass){pass=false;elim='规则24-26: 热度-水位背离校验未通过';}
+
+  // ===== 规则18-20: 基础星级 =====
+  if(pass){
+    const formOk=!udForm.wl;
+    const intentOk=m.pB!=='neutral';
+    if(wAok&&m.pull==='none'&&formOk&&intentOk&&isNeg){baseStar=5;}
+    else if(wAok&&m.pull==='none'&&(formOk||intentOk)){baseStar=4;}
+    else if(wAok&&m.pull==='none'){baseStar=3;}
+    else if(wAok){baseStar=3;}
+    else{baseStar=3;}
+  }
+  rules.push({id:18,n:'基础5★',p:baseStar===5,s:baseStar!==5,d:baseStar===5?'水位稳定+双在线+有利空':'—'});
+  rules.push({id:19,n:'基础4★',p:baseStar===4,s:baseStar!==4,d:baseStar===4?'水位临界+单在线':'—'});
+  rules.push({id:20,n:'基础3★',p:baseStar>=3,s:baseStar<3,d:baseStar>=3?`基础${baseStar}★`:'—'});
+
+  // ===== 规则21-23: 星级增益 =====
+  let bonus=0,bonusR=[];
+  if(baseStar>0){
+    if(hdp<0&&m.pA==='neutral'){bonus++;bonusR.push('让球方无压力(+1★)');}
+    else if(hdp>0&&m.pB==='neutral'){bonus++;bonusR.push('让球方无压力(+1★)');}
+    if(m.neg==='major'){bonus++;bonusR.push('让球方核心缺阵/大轮换(+1★)');}
+    if(heatGate){bonus+=0.5;bonusR.push('造热陷阱确认(+0.5★)');}
+  }
+  rules.push({id:21,n:'让球方战意缺失(+1★)',p:bonusR.some(r=>r.includes('无压力')),s:!bonusR.some(r=>r.includes('无压力')),d:'—'});
+  rules.push({id:22,n:'让球方轮换(+1★)',p:bonusR.some(r=>r.includes('轮换')),s:!bonusR.some(r=>r.includes('轮换')),d:'—'});
+  rules.push({id:23,n:'造热增益(+0.5★)',p:bonusR.some(r=>r.includes('造热')),s:!bonusR.some(r=>r.includes('造热')),d:'—'});
+
+  finalStar=Math.min(5,baseStar+bonus);
+  if(pass&&finalStar<3){pass=false;elim=`星级不足 ${finalStar}<3★`;}
+
+  // 渲染
+  A[i]={m,pass,finalStar,baseStar,bonus,bonusR,rules,elim};
+  renderR(i);
+}
+
+function renderR(i){
+  const a=A[i];if(!a)return;
+  const el=document.getElementById('rp'+i),card=document.getElementById('c'+i),bdg=document.getElementById('b'+i),stEl=document.getElementById('s'+i);
+  card.className='card '+(a.pass?'ok':'no');
+  bdg.className='bdg '+(a.pass?'ok':'no');
+  bdg.textContent=a.pass?`✅ 推荐受让方 ${a.finalStar}★`:'❌ 不推荐';
+  stEl.textContent='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'')+` (${a.finalStar}★)`;
+  const hdp=parseFloat(a.m.hdp),absH=Math.abs(hdp);
+  const hS=absH%1===0?absH+'球':absH+'球';
+  let fav,ud;
+  if(hdp<0){fav=a.m.tB;ud=a.m.tA;}else{fav=a.m.tA;ud=a.m.tB;}
+  let html=`<div class="rp-h"><div class="rv ${a.pass?'pass':'fail'}">${a.pass?`✅ 推荐受让方：买 ${ud} ${hS} · ${a.finalStar}★`:`❌ 不推荐 · ${a.elim}`}</div><div class="stars">${'★'.repeat(Math.floor(a.finalStar))}${a.finalStar%1?'☆':''}</div></div><div class="rp-b"><ul class="rl">`;
+  a.rules.forEach(r=>{
+    const c=r.s?'skip':(r.p?'pass':'fail');
+    const ic=r.s?'—':(r.p?'✅':'❌');
+    html+=`<li class="ri ${c}"><span class="rid">${r.id}</span><span class="rn">${r.n}</span><span class="rd">${ic} ${r.d}</span></li>`;
+  });
+  html+='</ul>';
+  if(a.bonusR.length)html+=`<div class="bonus">🌟 增益：${a.bonusR.join(' | ')}</div>`;
+  html+='</div>';
+  el.innerHTML=html;
+  el.classList.add('show');
+}
+
+// ==================== 全部分析 ====================
+function allAnalyze(){M.forEach((_,i)=>doAnalyze(i));const recs=A.filter(a=>a&&a.pass).sort((a,b)=>b.finalStar-a.finalStar);const s=document.getElementById('sum');s.style.display='block';if(!recs.length){document.getElementById('sumc').innerHTML='<p style="color:#7d8590">暂无≥3★推荐</p>';return;}let h='<table class="st"><thead><tr><th>#</th><th>比赛</th><th>受让方</th><th>盘口</th><th>星级</th></tr></thead><tbody>';recs.forEach((a,i)=>{const ud=a.m.hdp<0?a.m.tA:a.m.tB;h+=`<tr class="ok"><td>${i+1}</td><td>${a.m.tA} vs ${a.m.tB}</td><td style="font-weight:700;color:#52c41a">${ud}</td><td>${a.m.hdp}</td><td style="color:#fadb14">${'★'.repeat(Math.floor(a.finalStar))}(${a.finalStar})</td></tr>`;});h+='</tbody></table>';document.getElementById('sumc').innerHTML=h;}
+
+// ==================== 导出 ====================
+function doExport(){
+  // 收集所有已分析的比赛
+  const all=[];
+  A.forEach((a,i)=>{if(a)all.push({idx:i,...a});});
+  if(!all.length){alert('请先点击「全部分析」');return;}
+  all.sort((a,b)=>b.finalStar-a.finalStar);
+
+  // CSV内容
+  let csv='';
+  // 说明行
+  csv+='# 受让方筛选结果 V2.0.17\n';
+  csv+='# 生成时间: '+new Date().toLocaleString('zh-CN')+'\n';
+  csv+='# ★★★☆☆及以上 = 推荐场次（建议关注投注）\n';
+  csv+='# ★★☆☆☆及以下 = 不推荐（规则未通过，仅供参考）\n';
+  csv+='# ──────────────────────────────────────────────\n\n';
+
+  // 表头
+  csv+='排名,状态,比赛,受让方,让球方,盘口,受让方水位,让球方水位,让球方热度%,受让方星级,淘汰原因,增益因素\n';
+
+  // 先导出推荐场次(>=3星)
+  const recommended=all.filter(a=>a.finalStar>=3);
+  const notRecommended=all.filter(a=>a.finalStar<3);
+
+  let rank=0;
+  if(recommended.length){
+    csv+='\n# ★★★ 推荐场次（星级>=3★）\n';
+    recommended.forEach(a=>{
+      rank++;
+      const m=a.m,hdp=parseFloat(m.hdp),absH=Math.abs(hdp),hS=absH%1===0?absH+'球':absH+'球';
+      let fav,ud,fw,uw;
+      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
+      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      csv+=`${rank},✅推荐,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},${uw||'-'},${fw||'-'},${m.hot||'-'},${starStr}(${a.finalStar}),,${a.bonusR.join(' ')}\n`;
+    });
+  }
+
+  if(notRecommended.length){
+    csv+='\n# ❌ 不推荐场次（星级<3★ 或 规则淘汰）\n';
+    notRecommended.forEach(a=>{
+      rank++;
+      const m=a.m,hdp=parseFloat(m.hdp);
+      let fav,ud,fw,uw;
+      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
+      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      csv+=`${rank},❌淘汰,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},${uw||'-'},${fw||'-'},${m.hot||'-'},${starStr}(${a.finalStar}),${a.elim||'-'},${a.bonusR.join(' ')}\n`;
+    });
+  }
+
+  csv+='\n# ──────────────────────────────────────────────\n';
+  csv+=`# 合计: ${all.length}场分析, ${recommended.length}场推荐(>=3★), ${notRecommended.length}场不推荐\n`;
+  csv+='# 仅供参考，请理性投注\n';
+
+  // 下载CSV
+  const bom='﻿';
+  const blob=new Blob([bom+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url;
+  link.download=`受让方筛选_${new Date().toISOString().slice(0,10)}.csv`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+load();
+</script>
+</body>
+</html>
