@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect } from "react";
 // 你部署的 GitHub 仓库里 team_form.json 的原始地址
 // 改成你自己的：https://raw.githubusercontent.com/<你的用户名>/<仓库名>/main/data/team_form.json
 const DATA_SOURCE_URL =
-  "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/data/team_form.json";
+  "https://raw.githubusercontent.com/Cindy-Zhang-Potter/wc-tracker/main/data/team_form.json";
 
 // ---- 兜底快照：fetch失败时使用（来源 openfootball/worldcup.json，6/19快照）----
 // 正常运行时这份数据会被 fetch 回来的最新数据覆盖，不需要手动维护
