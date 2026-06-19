@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-06-19T08:31:26.060993+00:00",
+  "completed_matches": 28,
+  "total_matches": 104,
+  "team_form": {
+    "Mexico": {
+      "played": 2,
+      "gf": 3,
+      "ga": 0,
+      "gd": 3,
+      "results": "WW"
+    },
+    "South Africa": {
+      "played": 2,
+      "gf": 1,
+      "ga": 3,
+      "gd": -2,
+      "results": "LD"
+    },
+    "South Korea": {
+      "played": 2,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "WL"
+    },
+    "Czech Republic": {
+      "played": 2,
+      "gf": 2,
+      "ga": 3,
+      "gd": -1,
+      "results": "LD"
+    },
+    "Canada": {
+      "played": 2,
+      "gf": 7,
+      "ga": 1,
+      "gd": 6,
+      "results": "DW"
+    },
+    "Bosnia & Herzegovina": {
+      "played": 2,
+      "gf": 2,
+      "ga": 5,
+      "gd": -3,
+      "results": "DL"
+    },
+    "USA": {
+      "played": 1,
+      "gf": 4,
+      "ga": 1,
+      "gd": 3,
+      "results": "W"
+    },
+    "Paraguay": {
+      "played": 1,
+      "gf": 1,
+      "ga": 4,
+      "gd": -3,
+      "results": "L"
+    },
+    "Qatar": {
+      "played": 2,
+      "gf": 1,
+      "ga": 7,
+      "gd": -6,
+      "results": "DL"
+    },
+    "Switzerland": {
+      "played": 2,
+      "gf": 5,
+      "ga": 2,
+      "gd": 3,
+      "results": "DW"
+    },
+    "Brazil": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Morocco": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Haiti": {
+      "played": 1,
+      "gf": 0,
+      "ga": 1,
+      "gd": -1,
+      "results": "L"
+    },
+    "Scotland": {
+      "played": 1,
+      "gf": 1,
+      "ga": 0,
+      "gd": 1,
+      "results": "W"
+    },
+    "Australia": {
+      "played": 1,
+      "gf": 2,
+      "ga": 0,
+      "gd": 2,
+      "results": "W"
+    },
+    "Turkey": {
+      "played": 1,
+      "gf": 0,
+      "ga": 2,
+      "gd": -2,
+      "results": "L"
+    },
+    "Germany": {
+      "played": 1,
+      "gf": 7,
+      "ga": 1,
+      "gd": 6,
+      "results": "W"
+    },
+    "Curaçao": {
+      "played": 1,
+      "gf": 1,
+      "ga": 7,
+      "gd": -6,
+      "results": "L"
+    },
+    "Ivory Coast": {
+      "played": 1,
+      "gf": 1,
+      "ga": 0,
+      "gd": 1,
+      "results": "W"
+    },
+    "Ecuador": {
+      "played": 1,
+      "gf": 0,
+      "ga": 1,
+      "gd": -1,
+      "results": "L"
+    },
+    "Netherlands": {
+      "played": 1,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "D"
+    },
+    "Japan": {
+      "played": 1,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "D"
+    },
+    "Sweden": {
+      "played": 1,
+      "gf": 5,
+      "ga": 1,
+      "gd": 4,
+      "results": "W"
+    },
+    "Tunisia": {
+      "played": 1,
+      "gf": 1,
+      "ga": 5,
+      "gd": -4,
+      "results": "L"
+    },
+    "Belgium": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Egypt": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Iran": {
+      "played": 1,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "D"
+    },
+    "New Zealand": {
+      "played": 1,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "D"
+    },
+    "Spain": {
+      "played": 1,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "results": "D"
+    },
+    "Cape Verde": {
+      "played": 1,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "results": "D"
+    },
+    "Saudi Arabia": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Uruguay": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "France": {
+      "played": 1,
+      "gf": 3,
+      "ga": 1,
+      "gd": 2,
+      "results": "W"
+    },
+    "Senegal": {
+      "played": 1,
+      "gf": 1,
+      "ga": 3,
+      "gd": -2,
+      "results": "L"
+    },
+    "Iraq": {
+      "played": 1,
+      "gf": 1,
+      "ga": 4,
+      "gd": -3,
+      "results": "L"
+    },
+    "Norway": {
+      "played": 1,
+      "gf": 4,
+      "ga": 1,
+      "gd": 3,
+      "results": "W"
+    },
+    "Argentina": {
+      "played": 1,
+      "gf": 3,
+      "ga": 0,
+      "gd": 3,
+      "results": "W"
+    },
+    "Algeria": {
+      "played": 1,
+      "gf": 0,
+      "ga": 3,
+      "gd": -3,
+      "results": "L"
+    },
+    "Austria": {
+      "played": 1,
+      "gf": 3,
+      "ga": 1,
+      "gd": 2,
+      "results": "W"
+    },
+    "Jordan": {
+      "played": 1,
+      "gf": 1,
+      "ga": 3,
+      "gd": -2,
+      "results": "L"
+    },
+    "Portugal": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "DR Congo": {
+      "played": 1,
+      "gf": 1,
+      "ga": 1,
+      "gd": 0,
+      "results": "D"
+    },
+    "Uzbekistan": {
+      "played": 1,
+      "gf": 1,
+      "ga": 3,
+      "gd": -2,
+      "results": "L"
+    },
+    "Colombia": {
+      "played": 1,
+      "gf": 3,
+      "ga": 1,
+      "gd": 2,
+      "results": "W"
+    },
+    "England": {
+      "played": 1,
+      "gf": 4,
+      "ga": 2,
+      "gd": 2,
+      "results": "W"
+    },
+    "Croatia": {
+      "played": 1,
+      "gf": 2,
+      "ga": 4,
+      "gd": -2,
+      "results": "L"
+    },
+    "Ghana": {
+      "played": 1,
+      "gf": 1,
+      "ga": 0,
+      "gd": 1,
+      "results": "W"
+    },
+    "Panama": {
+      "played": 1,
+      "gf": 0,
+      "ga": 1,
+      "gd": -1,
+      "results": "L"
+    }
+  },
+  "next_matches": [
+    {
+      "date": "2026-06-19",
+      "team1": "Scotland",
+      "team2": "Morocco",
+      "group": "Group C"
+    },
+    {
+      "date": "2026-06-19",
+      "team1": "Brazil",
+      "team2": "Haiti",
+      "group": "Group C"
+    },
+    {
+      "date": "2026-06-19",
+      "team1": "USA",
+      "team2": "Australia",
+      "group": "Group D"
+    },
+    {
+      "date": "2026-06-19",
+      "team1": "Turkey",
+      "team2": "Paraguay",
+      "group": "Group D"
+    },
+    {
+      "date": "2026-06-20",
+      "team1": "Germany",
+      "team2": "Ivory Coast",
+      "group": "Group E"
+    },
+    {
+      "date": "2026-06-20",
+      "team1": "Ecuador",
+      "team2": "Curaçao",
+      "group": "Group E"
+    },
+    {
+      "date": "2026-06-20",
+      "team1": "Netherlands",
+      "team2": "Sweden",
+      "group": "Group F"
+    },
+    {
+      "date": "2026-06-20",
+      "team1": "Tunisia",
+      "team2": "Japan",
+      "group": "Group F"
+    },
+    {
+      "date": "2026-06-21",
+      "team1": "Belgium",
+      "team2": "Iran",
+      "group": "Group G"
+    },
+    {
+      "date": "2026-06-21",
+      "team1": "New Zealand",
+      "team2": "Egypt",
+      "group": "Group G"
+    }
+  ]
+}
