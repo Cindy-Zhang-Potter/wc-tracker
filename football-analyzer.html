@@ -433,15 +433,60 @@ function doExport(){
   csv+=`# 合计: ${all.length}场分析, ${recommended.length}场推荐(>=3★), ${notRecommended.length}场不推荐\n`;
   csv+='# 仅供参考，请理性投注\n';
 
-  // 下载CSV
-  const bom='﻿';
-  const blob=new Blob([bom+csv],{type:'text/csv;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement('a');
-  link.href=url;
-  link.download=`受让方筛选_${new Date().toISOString().slice(0,10)}.csv`;
-  link.click();
-  URL.revokeObjectURL(url);
+  // 在新页面预览结果
+  let html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>受让方筛选结果</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:#0d1117;color:#e6edf3;padding:20px}
+  h1{font-size:18px;margin-bottom:4px;color:#fff}h2{font-size:14px;color:#58a6ff;margin-bottom:16px}
+  .info{font-size:12px;color:#7d8590;margin-bottom:16px;line-height:1.8}
+  .line{border:none;border-top:2px dashed #fadb14;margin:16px 0}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{text-align:left;padding:8px 10px;background:#1c2129;color:#7d8590;font-size:11px;border-bottom:1px solid #30363d;position:sticky;top:0}
+  td{padding:8px 10px;border-bottom:1px solid #21262d}
+  tr.ok{background:rgba(46,125,50,.06)}
+  .star{color:#fadb14}.rec{color:#52c41a;font-weight:700}.elim{color:#ef9a9a;font-size:11px}
+  .section-tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;margin:12px 0 8px}
+  .tag-rec{background:#1b4332;color:#52c41a}.tag-norec{background:#2d1b1b;color:#ef9a9a}
+  .footer{margin-top:20px;font-size:11px;color:#555;text-align:center}
+  .btn{display:inline-block;padding:6px 14px;border-radius:5px;font-size:12px;cursor:pointer;text-decoration:none;margin-top:12px}
+  .btn-dl{background:#1976d2;color:#fff}.btn-back{background:#37474f;color:#fff;text-decoration:none}
+  </style></head><body>`;
+  html+=`<h1>⚽ 受让方筛选结果 V2.0.17</h1>`;
+  html+=`<h2>生成时间: ${new Date().toLocaleString('zh-CN')}</h2>`;
+  html+=`<div class="info">★★★☆☆及以上 = <span style="color:#52c41a">推荐场次（建议关注）</span> ｜ ★★☆☆☆及以下 = <span style="color:#ef9a9a">不推荐（仅供参考）</span></div>`;
+
+  if(recommended.length){
+    html+=`<div class="section-tag tag-rec">✅ 推荐场次 (${recommended.length}场)</div>`;
+    html+=`<table><thead><tr><th>排名</th><th>比赛</th><th>受让方</th><th>让球方</th><th>盘口</th><th>受让方水位</th><th>让球方水位</th><th>热度%</th><th>星级</th><th>增益</th></tr></thead><tbody>`;
+    recommended.forEach((a,i)=>{
+      const m=a.m,hdp=parseFloat(m.hdp),absH=Math.abs(hdp),hS=absH%1===0?absH+'球':absH+'球';
+      let fav,ud,fw,uw;
+      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
+      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      html+=`<tr class="ok"><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td class="rec">${ud}</td><td>${fav}</td><td>${m.hdp} (${hS})</td><td>${uw||'-'}</td><td>${fw||'-'}</td><td>${m.hot||'-'}</td><td class="star">${starStr}(${a.finalStar})</td><td style="font-size:11px;color:#fadb14">${a.bonusR.join(' ')}</td></tr>`;
+    });
+    html+=`</tbody></table>`;
+  }
+
+  if(notRecommended.length){
+    html+=`<div class="section-tag tag-norec">❌ 不推荐场次 (${notRecommended.length}场)</div>`;
+    html+=`<table><thead><tr><th>排名</th><th>比赛</th><th>受让方</th><th>让球方</th><th>盘口</th><th>星级</th><th>淘汰原因</th></tr></thead><tbody>`;
+    notRecommended.forEach((a,i)=>{
+      const m=a.m,hdp=parseFloat(m.hdp);
+      let fav,ud;
+      if(hdp<0){fav=m.tB;ud=m.tA;}else{fav=m.tA;ud=m.tB;}
+      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      html+=`<tr><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td>${ud}</td><td>${fav}</td><td>${m.hdp}</td><td class="star">${starStr}(${a.finalStar})</td><td class="elim">${a.elim||'-'}</td></tr>`;
+    });
+    html+=`</tbody></table>`;
+  }
+
+  html+=`<div class="footer">共 ${all.length} 场分析 · ${recommended.length} 场推荐(>=3★) · 仅供参考，请理性投注</div>`;
+  html+=`<div><a class="btn btn-dl" onclick="downloadCSV()">📥 下载CSV</a> <a class="btn btn-back" href="javascript:window.close()">✖ 关闭页面</a></div>`;
+  html+=`<script>function downloadCSV(){const csv=\`${csv.replace(/`/g,"'")}\`;const bom='\\uFEFF';const blob=new Blob([bom+csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='受让方_${new Date().toISOString().slice(0,10)}.csv';a.click();URL.revokeObjectURL(url);}<\/script></body></html>`;
+
+  const w=window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
 }
 
 load();
