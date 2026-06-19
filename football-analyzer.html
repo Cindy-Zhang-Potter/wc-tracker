@@ -76,6 +76,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0d1117;
   </div>
   <div id="ml"><div class="loading">正在加载数据...</div></div>
   <div class="sum" id="sum"><h2>📊 汇总：推荐受让方</h2><div id="sumc"></div></div>
+  <div id="results" style="display:none;margin-top:16px"></div>
 </div>
 
 <script>
@@ -382,111 +383,69 @@ function allAnalyze(){M.forEach((_,i)=>doAnalyze(i));const recs=A.filter(a=>a&&a
 
 // ==================== 导出 ====================
 function doExport(){
-  // 收集所有已分析的比赛
   const all=[];
   A.forEach((a,i)=>{if(a)all.push({idx:i,...a});});
   if(!all.length){alert('请先点击「全部分析」');return;}
   all.sort((a,b)=>b.finalStar-a.finalStar);
+  const recs=all.filter(a=>a.finalStar>=3);
+  const norecs=all.filter(a=>a.finalStar<3);
 
-  // CSV内容
-  let csv='';
-  // 说明行
-  csv+='# 受让方筛选结果 V2.0.17\n';
-  csv+='# 生成时间: '+new Date().toLocaleString('zh-CN')+'\n';
-  csv+='# ★★★☆☆及以上 = 推荐场次（建议关注投注）\n';
-  csv+='# ★★☆☆☆及以下 = 不推荐（规则未通过，仅供参考）\n';
-  csv+='# ──────────────────────────────────────────────\n\n';
+  let h=`<div style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+    <div><h2 style="font-size:16px;color:#fff;margin:0">⚽ 受让方筛选结果 V2.0.17</h2>
+    <div style="font-size:11px;color:#7d8590;margin-top:4px">生成时间: ${new Date().toLocaleString('zh-CN')}</div></div>
+    <button onclick="dlCSV()" style="padding:6px 14px;border:none;border-radius:5px;background:#1976d2;color:#fff;font-size:12px;cursor:pointer">📥 下载CSV</button>
+  </div>
+  <div style="font-size:12px;color:#8b949e;margin-bottom:12px">★★★☆☆及以上 = <span style="color:#52c41a">推荐</span> ｜ ★★☆☆☆及以下 = <span style="color:#ef9a9a">不推荐</span></div>`;
 
-  // 表头
-  csv+='排名,状态,比赛,受让方,让球方,盘口,受让方水位,让球方水位,让球方热度%,受让方星级,淘汰原因,增益因素\n';
+  if(recs.length){
+    h+=`<div style="display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;background:#1b4332;color:#52c41a;margin-bottom:8px">✅ 推荐场次 (${recs.length}场)</div>
+    <div style="overflow-x:auto"><table class="st"><thead><tr><th>排名</th><th>比赛</th><th>受让方</th><th>盘口</th><th>水位</th><th>热度</th><th>星级</th><th>增益</th></tr></thead><tbody>`;
+    recs.forEach((a,i)=>{
+      const m=a.m,hdp=parseFloat(m.hdp),absH=Math.abs(hdp),hS=absH%1===0?absH+'球':absH+'球';
+      let fav,ud,fw,uw;if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
+      const s='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      h+=`<tr class="ok"><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td style="font-weight:700;color:#52c41a">${ud}</td><td>${m.hdp}(${hS})</td><td>${uw||'-'}</td><td>${m.hot||'-'}%</td><td class="star" style="color:#fadb14">${s}(${a.finalStar})</td><td style="font-size:11px;color:#fadb14">${a.bonusR.join(' ')}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
 
-  // 先导出推荐场次(>=3星)
-  const recommended=all.filter(a=>a.finalStar>=3);
-  const notRecommended=all.filter(a=>a.finalStar<3);
+  if(norecs.length){
+    h+=`<div style="display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;background:#2d1b1b;color:#ef9a9a;margin:12px 0 8px">❌ 不推荐 (${norecs.length}场)</div>
+    <div style="overflow-x:auto"><table class="st"><thead><tr><th>排名</th><th>比赛</th><th>盘口</th><th>星级</th><th>淘汰原因</th></tr></thead><tbody>`;
+    norecs.forEach((a,i)=>{
+      const m=a.m;
+      const s='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
+      h+=`<tr><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td>${m.hdp}</td><td style="color:#fadb14">${s}(${a.finalStar})</td><td class="elim" style="color:#ef9a9a;font-size:11px">${a.elim||'-'}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
 
+  h+=`<div style="margin-top:12px;font-size:11px;color:#555">共 ${all.length} 场分析 · ${recs.length} 场推荐(>=3★) · 仅供参考，请理性投注</div></div>`;
+
+  const el=document.getElementById('results');
+  el.innerHTML=h;
+  el.style.display='block';
+  el.scrollIntoView({behavior:'smooth'});
+}
+
+// CSV下载
+function dlCSV(){
+  const all=[];
+  A.forEach((a,i)=>{if(a)all.push({idx:i,...a});});
+  all.sort((a,b)=>b.finalStar-a.finalStar);
+  const recs=all.filter(a=>a.finalStar>=3);
+  const norecs=all.filter(a=>a.finalStar<3);
+  let csv='# 受让方筛选结果 V2.0.17\n# 生成时间: '+new Date().toLocaleString('zh-CN')+'\n# ★★★☆☆及以上=推荐场次\n\n';
+  csv+='排名,状态,比赛,受让方,让球方,盘口,受让方水位,让球方水位,热度%,星级,淘汰原因,增益因素\n';
   let rank=0;
-  if(recommended.length){
-    csv+='\n# ★★★ 推荐场次（星级>=3★）\n';
-    recommended.forEach(a=>{
-      rank++;
-      const m=a.m,hdp=parseFloat(m.hdp),absH=Math.abs(hdp),hS=absH%1===0?absH+'球':absH+'球';
-      let fav,ud,fw,uw;
-      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
-      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
-      csv+=`${rank},✅推荐,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},${uw||'-'},${fw||'-'},${m.hot||'-'},${starStr}(${a.finalStar}),,${a.bonusR.join(' ')}\n`;
-    });
-  }
-
-  if(notRecommended.length){
-    csv+='\n# ❌ 不推荐场次（星级<3★ 或 规则淘汰）\n';
-    notRecommended.forEach(a=>{
-      rank++;
-      const m=a.m,hdp=parseFloat(m.hdp);
-      let fav,ud,fw,uw;
-      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
-      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
-      csv+=`${rank},❌淘汰,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},${uw||'-'},${fw||'-'},${m.hot||'-'},${starStr}(${a.finalStar}),${a.elim||'-'},${a.bonusR.join(' ')}\n`;
-    });
-  }
-
-  csv+='\n# ──────────────────────────────────────────────\n';
-  csv+=`# 合计: ${all.length}场分析, ${recommended.length}场推荐(>=3★), ${notRecommended.length}场不推荐\n`;
-  csv+='# 仅供参考，请理性投注\n';
-
-  // 在新页面预览结果
-  let html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>受让方筛选结果</title>
-  <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:#0d1117;color:#e6edf3;padding:20px}
-  h1{font-size:18px;margin-bottom:4px;color:#fff}h2{font-size:14px;color:#58a6ff;margin-bottom:16px}
-  .info{font-size:12px;color:#7d8590;margin-bottom:16px;line-height:1.8}
-  .line{border:none;border-top:2px dashed #fadb14;margin:16px 0}
-  table{width:100%;border-collapse:collapse;font-size:12px}
-  th{text-align:left;padding:8px 10px;background:#1c2129;color:#7d8590;font-size:11px;border-bottom:1px solid #30363d;position:sticky;top:0}
-  td{padding:8px 10px;border-bottom:1px solid #21262d}
-  tr.ok{background:rgba(46,125,50,.06)}
-  .star{color:#fadb14}.rec{color:#52c41a;font-weight:700}.elim{color:#ef9a9a;font-size:11px}
-  .section-tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;margin:12px 0 8px}
-  .tag-rec{background:#1b4332;color:#52c41a}.tag-norec{background:#2d1b1b;color:#ef9a9a}
-  .footer{margin-top:20px;font-size:11px;color:#555;text-align:center}
-  .btn{display:inline-block;padding:6px 14px;border-radius:5px;font-size:12px;cursor:pointer;text-decoration:none;margin-top:12px}
-  .btn-dl{background:#1976d2;color:#fff}.btn-back{background:#37474f;color:#fff;text-decoration:none}
-  </style></head><body>`;
-  html+=`<h1>⚽ 受让方筛选结果 V2.0.17</h1>`;
-  html+=`<h2>生成时间: ${new Date().toLocaleString('zh-CN')}</h2>`;
-  html+=`<div class="info">★★★☆☆及以上 = <span style="color:#52c41a">推荐场次（建议关注）</span> ｜ ★★☆☆☆及以下 = <span style="color:#ef9a9a">不推荐（仅供参考）</span></div>`;
-
-  if(recommended.length){
-    html+=`<div class="section-tag tag-rec">✅ 推荐场次 (${recommended.length}场)</div>`;
-    html+=`<table><thead><tr><th>排名</th><th>比赛</th><th>受让方</th><th>让球方</th><th>盘口</th><th>受让方水位</th><th>让球方水位</th><th>热度%</th><th>星级</th><th>增益</th></tr></thead><tbody>`;
-    recommended.forEach((a,i)=>{
-      const m=a.m,hdp=parseFloat(m.hdp),absH=Math.abs(hdp),hS=absH%1===0?absH+'球':absH+'球';
-      let fav,ud,fw,uw;
-      if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}
-      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
-      html+=`<tr class="ok"><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td class="rec">${ud}</td><td>${fav}</td><td>${m.hdp} (${hS})</td><td>${uw||'-'}</td><td>${fw||'-'}</td><td>${m.hot||'-'}</td><td class="star">${starStr}(${a.finalStar})</td><td style="font-size:11px;color:#fadb14">${a.bonusR.join(' ')}</td></tr>`;
-    });
-    html+=`</tbody></table>`;
-  }
-
-  if(notRecommended.length){
-    html+=`<div class="section-tag tag-norec">❌ 不推荐场次 (${notRecommended.length}场)</div>`;
-    html+=`<table><thead><tr><th>排名</th><th>比赛</th><th>受让方</th><th>让球方</th><th>盘口</th><th>星级</th><th>淘汰原因</th></tr></thead><tbody>`;
-    notRecommended.forEach((a,i)=>{
-      const m=a.m,hdp=parseFloat(m.hdp);
-      let fav,ud;
-      if(hdp<0){fav=m.tB;ud=m.tA;}else{fav=m.tA;ud=m.tB;}
-      const starStr='★'.repeat(Math.floor(a.finalStar))+(a.finalStar%1?'☆':'');
-      html+=`<tr><td>${i+1}</td><td>${m.tA} vs ${m.tB}</td><td>${ud}</td><td>${fav}</td><td>${m.hdp}</td><td class="star">${starStr}(${a.finalStar})</td><td class="elim">${a.elim||'-'}</td></tr>`;
-    });
-    html+=`</tbody></table>`;
-  }
-
-  html+=`<div class="footer">共 ${all.length} 场分析 · ${recommended.length} 场推荐(>=3★) · 仅供参考，请理性投注</div>`;
-  html+=`<div><a class="btn btn-dl" onclick="downloadCSV()">📥 下载CSV</a> <a class="btn btn-back" href="javascript:window.close()">✖ 关闭页面</a></div>`;
-  html+=`<script>function downloadCSV(){const csv=\`${csv.replace(/`/g,"'")}\`;const bom='\\uFEFF';const blob=new Blob([bom+csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='受让方_${new Date().toISOString().slice(0,10)}.csv';a.click();URL.revokeObjectURL(url);}<\/script></body></html>`;
-
-  const w=window.open('','_blank');
-  w.document.write(html);
-  w.document.close();
+  if(recs.length){csv+='\n# ★★★ 推荐场次\n';recs.forEach(a=>{rank++;const m=a.m,hdp=parseFloat(m.hdp);let fav,ud,fw,uw;if(hdp<0){fav=m.tB;ud=m.tA;fw=m.wH;uw=m.wA;}else{fav=m.tA;ud=m.tB;fw=m.wA;uw=m.wH;}csv+=`${rank},✅推荐,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},${uw||'-'}},${fw||'-'},${m.hot||'-'},★${a.finalStar},${a.elim||''},${a.bonusR.join(' ')}\n`;});}
+  if(norecs.length){csv+='\n# ❌ 不推荐\n';norecs.forEach(a=>{rank++;const m=a.m,hdp=parseFloat(m.hdp);let fav,ud;if(hdp<0){fav=m.tB;ud=m.tA;}else{fav=m.tA;ud=m.tB;}csv+=`${rank},❌淘汰,"${m.tA} vs ${m.tB}",${ud},${fav},${m.hdp},,,,★${a.finalStar},${a.elim||''},${a.bonusR.join(' ')}\n`;});}
+  csv+='\n# 共'+all.length+'场 · '+recs.length+'场推荐 · 仅供参考\n';
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='受让方_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+  URL.revokeObjectURL(url);
 }
 
 load();
