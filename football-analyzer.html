@@ -94,8 +94,13 @@ async function load(){
   el.innerHTML='<div class="loading">加载中...</div>';
   document.getElementById('st').textContent='加载中...';
   try{
-    const API='https://wc-api-proxy.3294733534.workers.dev';
-    const [dR,oR]=await Promise.all([fetch(API+'/api/dqd'),fetch(API+'/api/odds')]);
+    // 并行请求两个API（直连，不走Worker代理）
+    const dqdUrl='https://api.dongqiudi.com/data/tab/league/new/61';
+    const oddsUrl='https://api.the-odds-api.com/v4/sports/soccer_fifa_world_cup/odds/?apiKey=523a92cf2d0c66bb308e16185004e8a3&regions=eu,uk,us&markets=h2h,spreads&oddsFormat=decimal';
+    const [dR,oR]=await Promise.all([
+      fetch(dqdUrl).catch(()=>({json:()=>({list:[]})})),
+      fetch(oddsUrl).catch(()=>({json:()=>([])})
+    )]);
     const dD=await dR.json(),oD=await oR.json();
     const dqdR={};
     (dD.list||[]).forEach(m=>{dqdR[m.team_A_name]=m.rank_A;dqdR[m.team_B_name]=m.rank_B;});
