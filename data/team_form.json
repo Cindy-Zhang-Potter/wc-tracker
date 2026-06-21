@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-20T06:13:02.720389+00:00",
-  "completed_matches": 32,
+  "generated_at": "2026-06-21T06:43:49.886041+00:00",
+  "completed_matches": 36,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -116,60 +116,60 @@
       "results": "LL"
     },
     "Germany": {
-      "played": 1,
-      "gf": 7,
-      "ga": 1,
-      "gd": 6,
-      "results": "W"
+      "played": 2,
+      "gf": 9,
+      "ga": 2,
+      "gd": 7,
+      "results": "WW"
     },
     "Curaçao": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
       "ga": 7,
       "gd": -6,
-      "results": "L"
+      "results": "LD"
     },
     "Ivory Coast": {
-      "played": 1,
-      "gf": 1,
-      "ga": 0,
-      "gd": 1,
-      "results": "W"
+      "played": 2,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "results": "WL"
     },
     "Ecuador": {
-      "played": 1,
+      "played": 2,
       "gf": 0,
       "ga": 1,
       "gd": -1,
-      "results": "L"
+      "results": "LD"
     },
     "Netherlands": {
-      "played": 1,
-      "gf": 2,
-      "ga": 2,
-      "gd": 0,
-      "results": "D"
+      "played": 2,
+      "gf": 7,
+      "ga": 3,
+      "gd": 4,
+      "results": "DW"
     },
     "Japan": {
-      "played": 1,
-      "gf": 2,
+      "played": 2,
+      "gf": 6,
       "ga": 2,
-      "gd": 0,
-      "results": "D"
+      "gd": 4,
+      "results": "DW"
     },
     "Sweden": {
-      "played": 1,
-      "gf": 5,
-      "ga": 1,
-      "gd": 4,
-      "results": "W"
+      "played": 2,
+      "gf": 6,
+      "ga": 6,
+      "gd": 0,
+      "results": "WL"
     },
     "Tunisia": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
-      "ga": 5,
-      "gd": -4,
-      "results": "L"
+      "ga": 9,
+      "gd": -8,
+      "results": "LL"
     },
     "Belgium": {
       "played": 1,
@@ -342,30 +342,6 @@
   },
   "next_matches": [
     {
-      "date": "2026-06-20",
-      "team1": "Germany",
-      "team2": "Ivory Coast",
-      "group": "Group E"
-    },
-    {
-      "date": "2026-06-20",
-      "team1": "Ecuador",
-      "team2": "Curaçao",
-      "group": "Group E"
-    },
-    {
-      "date": "2026-06-20",
-      "team1": "Netherlands",
-      "team2": "Sweden",
-      "group": "Group F"
-    },
-    {
-      "date": "2026-06-20",
-      "team1": "Tunisia",
-      "team2": "Japan",
-      "group": "Group F"
-    },
-    {
       "date": "2026-06-21",
       "team1": "Belgium",
       "team2": "Iran",
@@ -400,6 +376,30 @@
       "team1": "Norway",
       "team2": "Senegal",
       "group": "Group I"
+    },
+    {
+      "date": "2026-06-22",
+      "team1": "Argentina",
+      "team2": "Austria",
+      "group": "Group J"
+    },
+    {
+      "date": "2026-06-22",
+      "team1": "Jordan",
+      "team2": "Algeria",
+      "group": "Group J"
+    },
+    {
+      "date": "2026-06-23",
+      "team1": "Portugal",
+      "team2": "Uzbekistan",
+      "group": "Group K"
+    },
+    {
+      "date": "2026-06-23",
+      "team1": "Colombia",
+      "team2": "DR Congo",
+      "group": "Group K"
     }
   ]
 }
