@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-21T06:43:49.886041+00:00",
-  "completed_matches": 36,
+  "generated_at": "2026-06-22T07:12:00.750918+00:00",
+  "completed_matches": 40,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -172,60 +172,60 @@
       "results": "LL"
     },
     "Belgium": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
       "ga": 1,
       "gd": 0,
-      "results": "D"
+      "results": "DD"
     },
     "Egypt": {
-      "played": 1,
-      "gf": 1,
-      "ga": 1,
-      "gd": 0,
-      "results": "D"
+      "played": 2,
+      "gf": 4,
+      "ga": 2,
+      "gd": 2,
+      "results": "DW"
     },
     "Iran": {
-      "played": 1,
+      "played": 2,
       "gf": 2,
       "ga": 2,
       "gd": 0,
-      "results": "D"
+      "results": "DD"
     },
     "New Zealand": {
-      "played": 1,
+      "played": 2,
+      "gf": 3,
+      "ga": 5,
+      "gd": -2,
+      "results": "DL"
+    },
+    "Spain": {
+      "played": 2,
+      "gf": 4,
+      "ga": 0,
+      "gd": 4,
+      "results": "DW"
+    },
+    "Cape Verde": {
+      "played": 2,
       "gf": 2,
       "ga": 2,
       "gd": 0,
-      "results": "D"
-    },
-    "Spain": {
-      "played": 1,
-      "gf": 0,
-      "ga": 0,
-      "gd": 0,
-      "results": "D"
-    },
-    "Cape Verde": {
-      "played": 1,
-      "gf": 0,
-      "ga": 0,
-      "gd": 0,
-      "results": "D"
+      "results": "DD"
     },
     "Saudi Arabia": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
-      "ga": 1,
-      "gd": 0,
-      "results": "D"
+      "ga": 5,
+      "gd": -4,
+      "results": "DL"
     },
     "Uruguay": {
-      "played": 1,
-      "gf": 1,
-      "ga": 1,
+      "played": 2,
+      "gf": 3,
+      "ga": 3,
       "gd": 0,
-      "results": "D"
+      "results": "DD"
     },
     "France": {
       "played": 1,
@@ -342,30 +342,6 @@
   },
   "next_matches": [
     {
-      "date": "2026-06-21",
-      "team1": "Belgium",
-      "team2": "Iran",
-      "group": "Group G"
-    },
-    {
-      "date": "2026-06-21",
-      "team1": "New Zealand",
-      "team2": "Egypt",
-      "group": "Group G"
-    },
-    {
-      "date": "2026-06-21",
-      "team1": "Spain",
-      "team2": "Saudi Arabia",
-      "group": "Group H"
-    },
-    {
-      "date": "2026-06-21",
-      "team1": "Uruguay",
-      "team2": "Cape Verde",
-      "group": "Group H"
-    },
-    {
       "date": "2026-06-22",
       "team1": "France",
       "team2": "Iraq",
@@ -400,6 +376,30 @@
       "team1": "Colombia",
       "team2": "DR Congo",
       "group": "Group K"
+    },
+    {
+      "date": "2026-06-23",
+      "team1": "England",
+      "team2": "Ghana",
+      "group": "Group L"
+    },
+    {
+      "date": "2026-06-23",
+      "team1": "Panama",
+      "team2": "Croatia",
+      "group": "Group L"
+    },
+    {
+      "date": "2026-06-24",
+      "team1": "Czech Republic",
+      "team2": "Mexico",
+      "group": "Group A"
+    },
+    {
+      "date": "2026-06-24",
+      "team1": "South Africa",
+      "team2": "South Korea",
+      "group": "Group A"
     }
   ]
 }
