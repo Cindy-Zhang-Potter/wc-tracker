@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-23T05:59:17.723649+00:00",
-  "completed_matches": 44,
+  "generated_at": "2026-06-24T05:59:16.121234+00:00",
+  "completed_matches": 48,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -284,87 +284,63 @@
       "results": "LL"
     },
     "Portugal": {
-      "played": 1,
-      "gf": 1,
+      "played": 2,
+      "gf": 6,
       "ga": 1,
-      "gd": 0,
-      "results": "D"
+      "gd": 5,
+      "results": "DW"
     },
     "DR Congo": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
-      "ga": 1,
-      "gd": 0,
-      "results": "D"
+      "ga": 2,
+      "gd": -1,
+      "results": "DL"
     },
     "Uzbekistan": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
-      "ga": 3,
-      "gd": -2,
-      "results": "L"
+      "ga": 8,
+      "gd": -7,
+      "results": "LL"
     },
     "Colombia": {
-      "played": 1,
-      "gf": 3,
+      "played": 2,
+      "gf": 4,
       "ga": 1,
-      "gd": 2,
-      "results": "W"
+      "gd": 3,
+      "results": "WW"
     },
     "England": {
-      "played": 1,
+      "played": 2,
       "gf": 4,
       "ga": 2,
       "gd": 2,
-      "results": "W"
+      "results": "WD"
     },
     "Croatia": {
-      "played": 1,
-      "gf": 2,
+      "played": 2,
+      "gf": 3,
       "ga": 4,
-      "gd": -2,
-      "results": "L"
+      "gd": -1,
+      "results": "LW"
     },
     "Ghana": {
-      "played": 1,
+      "played": 2,
       "gf": 1,
       "ga": 0,
       "gd": 1,
-      "results": "W"
+      "results": "WD"
     },
     "Panama": {
-      "played": 1,
+      "played": 2,
       "gf": 0,
-      "ga": 1,
-      "gd": -1,
-      "results": "L"
+      "ga": 2,
+      "gd": -2,
+      "results": "LL"
     }
   },
   "next_matches": [
-    {
-      "date": "2026-06-23",
-      "team1": "Portugal",
-      "team2": "Uzbekistan",
-      "group": "Group K"
-    },
-    {
-      "date": "2026-06-23",
-      "team1": "Colombia",
-      "team2": "DR Congo",
-      "group": "Group K"
-    },
-    {
-      "date": "2026-06-23",
-      "team1": "England",
-      "team2": "Ghana",
-      "group": "Group L"
-    },
-    {
-      "date": "2026-06-23",
-      "team1": "Panama",
-      "team2": "Croatia",
-      "group": "Group L"
-    },
     {
       "date": "2026-06-24",
       "team1": "Czech Republic",
@@ -400,6 +376,30 @@
       "team1": "Morocco",
       "team2": "Haiti",
       "group": "Group C"
+    },
+    {
+      "date": "2026-06-25",
+      "team1": "Turkey",
+      "team2": "USA",
+      "group": "Group D"
+    },
+    {
+      "date": "2026-06-25",
+      "team1": "Paraguay",
+      "team2": "Australia",
+      "group": "Group D"
+    },
+    {
+      "date": "2026-06-25",
+      "team1": "Curaçao",
+      "team2": "Ivory Coast",
+      "group": "Group E"
+    },
+    {
+      "date": "2026-06-25",
+      "team1": "Ecuador",
+      "team2": "Germany",
+      "group": "Group E"
     }
   ]
 }
