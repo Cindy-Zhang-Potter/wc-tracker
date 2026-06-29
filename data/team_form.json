@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-28T06:08:28.920870+00:00",
-  "completed_matches": 72,
+  "generated_at": "2026-06-29T06:29:04.871687+00:00",
+  "completed_matches": 73,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -11,11 +11,11 @@
       "results": "WWW"
     },
     "South Africa": {
-      "played": 3,
+      "played": 4,
       "gf": 2,
-      "ga": 3,
-      "gd": -1,
-      "results": "LDW"
+      "ga": 4,
+      "gd": -2,
+      "results": "LDWL"
     },
     "South Korea": {
       "played": 3,
@@ -32,11 +32,11 @@
       "results": "LDL"
     },
     "Canada": {
-      "played": 3,
-      "gf": 8,
+      "played": 4,
+      "gf": 9,
       "ga": 3,
-      "gd": 5,
-      "results": "DWL"
+      "gd": 6,
+      "results": "DWLW"
     },
     "Bosnia & Herzegovina": {
       "played": 3,
@@ -342,15 +342,9 @@
   },
   "next_matches": [
     {
-      "date": "2026-06-28",
-      "team1": "South Africa",
-      "team2": "Canada",
-      "group": null
-    },
-    {
       "date": "2026-06-29",
       "team1": "Germany",
-      "team2": "3A/B/C/D/F",
+      "team2": "Paraguay",
       "group": null
     },
     {
@@ -367,38 +361,44 @@
     },
     {
       "date": "2026-06-30",
-      "team1": "1I",
-      "team2": "3C/D/F/G/H",
+      "team1": "France",
+      "team2": "Sweden",
       "group": null
     },
     {
       "date": "2026-06-30",
       "team1": "Ivory Coast",
-      "team2": "2I",
+      "team2": "Norway",
       "group": null
     },
     {
       "date": "2026-06-30",
       "team1": "Mexico",
-      "team2": "3C/E/F/H/I",
+      "team2": "Ecuador",
       "group": null
     },
     {
       "date": "2026-07-01",
-      "team1": "1L",
-      "team2": "3E/H/I/J/K",
+      "team1": "England",
+      "team2": "DR Congo",
       "group": null
     },
     {
       "date": "2026-07-01",
       "team1": "USA",
-      "team2": "3B/E/F/I/J",
+      "team2": "Bosnia & Herzegovina",
       "group": null
     },
     {
       "date": "2026-07-01",
-      "team1": "1G",
-      "team2": "3A/E/H/I/J",
+      "team1": "Belgium",
+      "team2": "Senegal",
+      "group": null
+    },
+    {
+      "date": "2026-07-02",
+      "team1": "Portugal",
+      "team2": "Croatia",
       "group": null
     }
   ]
