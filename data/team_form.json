@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T06:29:04.871687+00:00",
-  "completed_matches": 73,
+  "generated_at": "2026-06-30T06:02:48.637783+00:00",
+  "completed_matches": 76,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -53,11 +53,11 @@
       "results": "WWL"
     },
     "Paraguay": {
-      "played": 3,
-      "gf": 2,
-      "ga": 4,
+      "played": 4,
+      "gf": 3,
+      "ga": 5,
       "gd": -2,
-      "results": "LWD"
+      "results": "LWDD"
     },
     "Qatar": {
       "played": 3,
@@ -74,18 +74,18 @@
       "results": "DWW"
     },
     "Brazil": {
-      "played": 3,
-      "gf": 7,
-      "ga": 1,
-      "gd": 6,
-      "results": "DWW"
+      "played": 4,
+      "gf": 9,
+      "ga": 2,
+      "gd": 7,
+      "results": "DWWW"
     },
     "Morocco": {
-      "played": 3,
-      "gf": 6,
-      "ga": 3,
+      "played": 4,
+      "gf": 7,
+      "ga": 4,
       "gd": 3,
-      "results": "DWW"
+      "results": "DWWD"
     },
     "Haiti": {
       "played": 3,
@@ -116,11 +116,11 @@
       "results": "LLW"
     },
     "Germany": {
-      "played": 3,
-      "gf": 10,
-      "ga": 4,
+      "played": 4,
+      "gf": 11,
+      "ga": 5,
       "gd": 6,
-      "results": "WWL"
+      "results": "WWLD"
     },
     "Curaçao": {
       "played": 3,
@@ -144,18 +144,18 @@
       "results": "LDW"
     },
     "Netherlands": {
-      "played": 3,
-      "gf": 10,
-      "ga": 4,
+      "played": 4,
+      "gf": 11,
+      "ga": 5,
       "gd": 6,
-      "results": "DWW"
+      "results": "DWWD"
     },
     "Japan": {
-      "played": 3,
-      "gf": 7,
-      "ga": 3,
-      "gd": 4,
-      "results": "DWD"
+      "played": 4,
+      "gf": 8,
+      "ga": 5,
+      "gd": 3,
+      "results": "DWDL"
     },
     "Sweden": {
       "played": 3,
@@ -342,24 +342,6 @@
   },
   "next_matches": [
     {
-      "date": "2026-06-29",
-      "team1": "Germany",
-      "team2": "Paraguay",
-      "group": null
-    },
-    {
-      "date": "2026-06-29",
-      "team1": "Netherlands",
-      "team2": "Morocco",
-      "group": null
-    },
-    {
-      "date": "2026-06-29",
-      "team1": "Brazil",
-      "team2": "Japan",
-      "group": null
-    },
-    {
       "date": "2026-06-30",
       "team1": "France",
       "team2": "Sweden",
@@ -399,6 +381,24 @@
       "date": "2026-07-02",
       "team1": "Portugal",
       "team2": "Croatia",
+      "group": null
+    },
+    {
+      "date": "2026-07-02",
+      "team1": "Spain",
+      "team2": "Austria",
+      "group": null
+    },
+    {
+      "date": "2026-07-02",
+      "team1": "Switzerland",
+      "team2": "Algeria",
+      "group": null
+    },
+    {
+      "date": "2026-07-03",
+      "team1": "Argentina",
+      "team2": "Cape Verde",
       "group": null
     }
   ]
