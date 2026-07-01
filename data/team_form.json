@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-30T06:02:48.637783+00:00",
-  "completed_matches": 76,
+  "generated_at": "2026-07-01T06:17:33.476047+00:00",
+  "completed_matches": 78,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -130,11 +130,11 @@
       "results": "LDL"
     },
     "Ivory Coast": {
-      "played": 3,
-      "gf": 4,
-      "ga": 2,
-      "gd": 2,
-      "results": "WLW"
+      "played": 4,
+      "gf": 5,
+      "ga": 4,
+      "gd": 1,
+      "results": "WLWL"
     },
     "Ecuador": {
       "played": 3,
@@ -158,11 +158,11 @@
       "results": "DWDL"
     },
     "Sweden": {
-      "played": 3,
+      "played": 4,
       "gf": 7,
-      "ga": 7,
-      "gd": 0,
-      "results": "WLD"
+      "ga": 10,
+      "gd": -3,
+      "results": "WLDL"
     },
     "Tunisia": {
       "played": 3,
@@ -228,11 +228,11 @@
       "results": "DDL"
     },
     "France": {
-      "played": 3,
-      "gf": 10,
+      "played": 4,
+      "gf": 13,
       "ga": 2,
-      "gd": 8,
-      "results": "WWW"
+      "gd": 11,
+      "results": "WWWW"
     },
     "Senegal": {
       "played": 3,
@@ -249,11 +249,11 @@
       "results": "LLL"
     },
     "Norway": {
-      "played": 3,
-      "gf": 8,
-      "ga": 7,
-      "gd": 1,
-      "results": "WWL"
+      "played": 4,
+      "gf": 10,
+      "ga": 8,
+      "gd": 2,
+      "results": "WWLW"
     },
     "Argentina": {
       "played": 3,
@@ -343,18 +343,6 @@
   "next_matches": [
     {
       "date": "2026-06-30",
-      "team1": "France",
-      "team2": "Sweden",
-      "group": null
-    },
-    {
-      "date": "2026-06-30",
-      "team1": "Ivory Coast",
-      "team2": "Norway",
-      "group": null
-    },
-    {
-      "date": "2026-06-30",
       "team1": "Mexico",
       "team2": "Ecuador",
       "group": null
@@ -399,6 +387,18 @@
       "date": "2026-07-03",
       "team1": "Argentina",
       "team2": "Cape Verde",
+      "group": null
+    },
+    {
+      "date": "2026-07-03",
+      "team1": "Colombia",
+      "team2": "Ghana",
+      "group": null
+    },
+    {
+      "date": "2026-07-03",
+      "team1": "Australia",
+      "team2": "Egypt",
       "group": null
     }
   ]
