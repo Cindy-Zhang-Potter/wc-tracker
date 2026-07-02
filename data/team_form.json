@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-01T06:17:33.476047+00:00",
-  "completed_matches": 78,
+  "generated_at": "2026-07-02T05:50:06.940943+00:00",
+  "completed_matches": 82,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
-      "played": 3,
-      "gf": 6,
+      "played": 4,
+      "gf": 8,
       "ga": 0,
-      "gd": 6,
-      "results": "WWW"
+      "gd": 8,
+      "results": "WWWW"
     },
     "South Africa": {
       "played": 4,
@@ -39,18 +39,18 @@
       "results": "DWLW"
     },
     "Bosnia & Herzegovina": {
-      "played": 3,
+      "played": 4,
       "gf": 5,
-      "ga": 6,
-      "gd": -1,
-      "results": "DLW"
+      "ga": 8,
+      "gd": -3,
+      "results": "DLWL"
     },
     "USA": {
-      "played": 3,
-      "gf": 8,
+      "played": 4,
+      "gf": 10,
       "ga": 4,
-      "gd": 4,
-      "results": "WWL"
+      "gd": 6,
+      "results": "WWLW"
     },
     "Paraguay": {
       "played": 4,
@@ -137,11 +137,11 @@
       "results": "WLWL"
     },
     "Ecuador": {
-      "played": 3,
+      "played": 4,
       "gf": 2,
-      "ga": 2,
-      "gd": 0,
-      "results": "LDW"
+      "ga": 4,
+      "gd": -2,
+      "results": "LDWL"
     },
     "Netherlands": {
       "played": 4,
@@ -172,11 +172,11 @@
       "results": "LLL"
     },
     "Belgium": {
-      "played": 3,
-      "gf": 6,
-      "ga": 2,
+      "played": 4,
+      "gf": 8,
+      "ga": 4,
       "gd": 4,
-      "results": "DDW"
+      "results": "DDWD"
     },
     "Egypt": {
       "played": 3,
@@ -235,11 +235,11 @@
       "results": "WWWW"
     },
     "Senegal": {
-      "played": 3,
-      "gf": 8,
-      "ga": 6,
+      "played": 4,
+      "gf": 10,
+      "ga": 8,
       "gd": 2,
-      "results": "LLW"
+      "results": "LLWD"
     },
     "Iraq": {
       "played": 3,
@@ -291,11 +291,11 @@
       "results": "DWD"
     },
     "DR Congo": {
-      "played": 3,
-      "gf": 4,
-      "ga": 3,
-      "gd": 1,
-      "results": "DLW"
+      "played": 4,
+      "gf": 5,
+      "ga": 5,
+      "gd": 0,
+      "results": "DLWL"
     },
     "Uzbekistan": {
       "played": 3,
@@ -312,11 +312,11 @@
       "results": "WWD"
     },
     "England": {
-      "played": 3,
-      "gf": 6,
-      "ga": 2,
-      "gd": 4,
-      "results": "WDW"
+      "played": 4,
+      "gf": 8,
+      "ga": 3,
+      "gd": 5,
+      "results": "WDWW"
     },
     "Croatia": {
       "played": 3,
@@ -341,30 +341,6 @@
     }
   },
   "next_matches": [
-    {
-      "date": "2026-06-30",
-      "team1": "Mexico",
-      "team2": "Ecuador",
-      "group": null
-    },
-    {
-      "date": "2026-07-01",
-      "team1": "England",
-      "team2": "DR Congo",
-      "group": null
-    },
-    {
-      "date": "2026-07-01",
-      "team1": "USA",
-      "team2": "Bosnia & Herzegovina",
-      "group": null
-    },
-    {
-      "date": "2026-07-01",
-      "team1": "Belgium",
-      "team2": "Senegal",
-      "group": null
-    },
     {
       "date": "2026-07-02",
       "team1": "Portugal",
@@ -399,6 +375,30 @@
       "date": "2026-07-03",
       "team1": "Australia",
       "team2": "Egypt",
+      "group": null
+    },
+    {
+      "date": "2026-07-04",
+      "team1": "Paraguay",
+      "team2": "France",
+      "group": null
+    },
+    {
+      "date": "2026-07-04",
+      "team1": "Canada",
+      "team2": "Morocco",
+      "group": null
+    },
+    {
+      "date": "2026-07-05",
+      "team1": "Brazil",
+      "team2": "Norway",
+      "group": null
+    },
+    {
+      "date": "2026-07-05",
+      "team1": "Mexico",
+      "team2": "W80",
       "group": null
     }
   ]
