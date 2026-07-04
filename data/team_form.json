@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-03T05:44:18.083770+00:00",
-  "completed_matches": 85,
+  "generated_at": "2026-07-04T05:37:51.121058+00:00",
+  "completed_matches": 88,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -102,11 +102,11 @@
       "results": "WLL"
     },
     "Australia": {
-      "played": 3,
-      "gf": 2,
-      "ga": 2,
+      "played": 4,
+      "gf": 3,
+      "ga": 3,
       "gd": 0,
-      "results": "WLD"
+      "results": "WLDD"
     },
     "Turkey": {
       "played": 3,
@@ -179,11 +179,11 @@
       "results": "DDWD"
     },
     "Egypt": {
-      "played": 3,
-      "gf": 5,
-      "ga": 3,
+      "played": 4,
+      "gf": 6,
+      "ga": 4,
       "gd": 2,
-      "results": "DWD"
+      "results": "DWDD"
     },
     "Iran": {
       "played": 3,
@@ -207,11 +207,11 @@
       "results": "DWWW"
     },
     "Cape Verde": {
-      "played": 3,
-      "gf": 2,
-      "ga": 2,
+      "played": 4,
+      "gf": 3,
+      "ga": 3,
       "gd": 0,
-      "results": "DDD"
+      "results": "DDDD"
     },
     "Saudi Arabia": {
       "played": 3,
@@ -256,11 +256,11 @@
       "results": "WWLW"
     },
     "Argentina": {
-      "played": 3,
-      "gf": 8,
-      "ga": 1,
+      "played": 4,
+      "gf": 9,
+      "ga": 2,
       "gd": 7,
-      "results": "WWW"
+      "results": "WWWD"
     },
     "Algeria": {
       "played": 4,
@@ -305,11 +305,11 @@
       "results": "LLL"
     },
     "Colombia": {
-      "played": 3,
-      "gf": 4,
+      "played": 4,
+      "gf": 5,
       "ga": 1,
-      "gd": 3,
-      "results": "WWD"
+      "gd": 4,
+      "results": "WWDW"
     },
     "England": {
       "played": 4,
@@ -326,11 +326,11 @@
       "results": "LWWL"
     },
     "Ghana": {
-      "played": 3,
+      "played": 4,
       "gf": 2,
-      "ga": 2,
-      "gd": 0,
-      "results": "WDL"
+      "ga": 3,
+      "gd": -1,
+      "results": "WDLL"
     },
     "Panama": {
       "played": 3,
@@ -341,24 +341,6 @@
     }
   },
   "next_matches": [
-    {
-      "date": "2026-07-03",
-      "team1": "Argentina",
-      "team2": "Cape Verde",
-      "group": null
-    },
-    {
-      "date": "2026-07-03",
-      "team1": "Colombia",
-      "team2": "Ghana",
-      "group": null
-    },
-    {
-      "date": "2026-07-03",
-      "team1": "Australia",
-      "team2": "Egypt",
-      "group": null
-    },
     {
       "date": "2026-07-04",
       "team1": "Paraguay",
@@ -385,8 +367,8 @@
     },
     {
       "date": "2026-07-06",
-      "team1": "W83",
-      "team2": "W84",
+      "team1": "Portugal",
+      "team2": "Spain",
       "group": null
     },
     {
@@ -399,6 +381,24 @@
       "date": "2026-07-07",
       "team1": "W86",
       "team2": "W88",
+      "group": null
+    },
+    {
+      "date": "2026-07-07",
+      "team1": "Switzerland",
+      "team2": "W87",
+      "group": null
+    },
+    {
+      "date": "2026-07-09",
+      "team1": "W89",
+      "team2": "W90",
+      "group": null
+    },
+    {
+      "date": "2026-07-10",
+      "team1": "W93",
+      "team2": "W94",
       "group": null
     }
   ]
