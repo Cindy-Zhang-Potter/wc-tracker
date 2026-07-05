@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-04T05:37:51.121058+00:00",
-  "completed_matches": 88,
+  "generated_at": "2026-07-05T05:55:56.861489+00:00",
+  "completed_matches": 90,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -32,11 +32,11 @@
       "results": "LDL"
     },
     "Canada": {
-      "played": 4,
+      "played": 5,
       "gf": 9,
-      "ga": 3,
-      "gd": 6,
-      "results": "DWLW"
+      "ga": 6,
+      "gd": 3,
+      "results": "DWLWL"
     },
     "Bosnia & Herzegovina": {
       "played": 4,
@@ -53,11 +53,11 @@
       "results": "WWLW"
     },
     "Paraguay": {
-      "played": 4,
+      "played": 5,
       "gf": 3,
-      "ga": 5,
-      "gd": -2,
-      "results": "LWDD"
+      "ga": 6,
+      "gd": -3,
+      "results": "LWDDL"
     },
     "Qatar": {
       "played": 3,
@@ -81,11 +81,11 @@
       "results": "DWWW"
     },
     "Morocco": {
-      "played": 4,
-      "gf": 7,
+      "played": 5,
+      "gf": 10,
       "ga": 4,
-      "gd": 3,
-      "results": "DWWD"
+      "gd": 6,
+      "results": "DWWDW"
     },
     "Haiti": {
       "played": 3,
@@ -228,11 +228,11 @@
       "results": "DDL"
     },
     "France": {
-      "played": 4,
-      "gf": 13,
+      "played": 5,
+      "gf": 14,
       "ga": 2,
-      "gd": 11,
-      "results": "WWWW"
+      "gd": 12,
+      "results": "WWWWW"
     },
     "Senegal": {
       "played": 4,
@@ -342,18 +342,6 @@
   },
   "next_matches": [
     {
-      "date": "2026-07-04",
-      "team1": "Paraguay",
-      "team2": "France",
-      "group": null
-    },
-    {
-      "date": "2026-07-04",
-      "team1": "Canada",
-      "team2": "Morocco",
-      "group": null
-    },
-    {
       "date": "2026-07-05",
       "team1": "Brazil",
       "team2": "Norway",
@@ -379,14 +367,14 @@
     },
     {
       "date": "2026-07-07",
-      "team1": "W86",
-      "team2": "W88",
+      "team1": "Argentina",
+      "team2": "Egypt",
       "group": null
     },
     {
       "date": "2026-07-07",
       "team1": "Switzerland",
-      "team2": "W87",
+      "team2": "Colombia",
       "group": null
     },
     {
@@ -399,6 +387,18 @@
       "date": "2026-07-10",
       "team1": "W93",
       "team2": "W94",
+      "group": null
+    },
+    {
+      "date": "2026-07-11",
+      "team1": "W91",
+      "team2": "W92",
+      "group": null
+    },
+    {
+      "date": "2026-07-11",
+      "team1": "W95",
+      "team2": "W96",
       "group": null
     }
   ]
