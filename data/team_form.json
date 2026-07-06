@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-05T05:55:56.861489+00:00",
-  "completed_matches": 90,
+  "generated_at": "2026-07-06T06:19:20.397713+00:00",
+  "completed_matches": 92,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
-      "played": 4,
-      "gf": 8,
-      "ga": 0,
-      "gd": 8,
-      "results": "WWWW"
+      "played": 5,
+      "gf": 10,
+      "ga": 3,
+      "gd": 7,
+      "results": "WWWWL"
     },
     "South Africa": {
       "played": 4,
@@ -74,11 +74,11 @@
       "results": "DWWW"
     },
     "Brazil": {
-      "played": 4,
-      "gf": 9,
-      "ga": 2,
-      "gd": 7,
-      "results": "DWWW"
+      "played": 5,
+      "gf": 10,
+      "ga": 4,
+      "gd": 6,
+      "results": "DWWWL"
     },
     "Morocco": {
       "played": 5,
@@ -249,11 +249,11 @@
       "results": "LLL"
     },
     "Norway": {
-      "played": 4,
-      "gf": 10,
-      "ga": 8,
-      "gd": 2,
-      "results": "WWLW"
+      "played": 5,
+      "gf": 12,
+      "ga": 9,
+      "gd": 3,
+      "results": "WWLWW"
     },
     "Argentina": {
       "played": 4,
@@ -312,11 +312,11 @@
       "results": "WWDW"
     },
     "England": {
-      "played": 4,
-      "gf": 8,
-      "ga": 3,
-      "gd": 5,
-      "results": "WDWW"
+      "played": 5,
+      "gf": 11,
+      "ga": 5,
+      "gd": 6,
+      "results": "WDWWW"
     },
     "Croatia": {
       "played": 4,
@@ -341,18 +341,6 @@
     }
   },
   "next_matches": [
-    {
-      "date": "2026-07-05",
-      "team1": "Brazil",
-      "team2": "Norway",
-      "group": null
-    },
-    {
-      "date": "2026-07-05",
-      "team1": "Mexico",
-      "team2": "England",
-      "group": null
-    },
     {
       "date": "2026-07-06",
       "team1": "Portugal",
@@ -379,8 +367,8 @@
     },
     {
       "date": "2026-07-09",
-      "team1": "W89",
-      "team2": "W90",
+      "team1": "France",
+      "team2": "Morocco",
       "group": null
     },
     {
@@ -399,6 +387,18 @@
       "date": "2026-07-11",
       "team1": "W95",
       "team2": "W96",
+      "group": null
+    },
+    {
+      "date": "2026-07-14",
+      "team1": "W97",
+      "team2": "W98",
+      "group": null
+    },
+    {
+      "date": "2026-07-15",
+      "team1": "W99",
+      "team2": "W100",
       "group": null
     }
   ]
