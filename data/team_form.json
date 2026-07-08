@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T05:59:31.894010+00:00",
-  "completed_matches": 94,
+  "generated_at": "2026-07-08T05:00:05.016268+00:00",
+  "completed_matches": 96,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -67,11 +67,11 @@
       "results": "DLL"
     },
     "Switzerland": {
-      "played": 4,
+      "played": 5,
       "gf": 9,
       "ga": 3,
       "gd": 6,
-      "results": "DWWW"
+      "results": "DWWWD"
     },
     "Brazil": {
       "played": 5,
@@ -179,11 +179,11 @@
       "results": "DDWDW"
     },
     "Egypt": {
-      "played": 4,
-      "gf": 6,
-      "ga": 4,
-      "gd": 2,
-      "results": "DWDD"
+      "played": 5,
+      "gf": 8,
+      "ga": 7,
+      "gd": 1,
+      "results": "DWDDL"
     },
     "Iran": {
       "played": 3,
@@ -256,11 +256,11 @@
       "results": "WWLWW"
     },
     "Argentina": {
-      "played": 4,
-      "gf": 9,
-      "ga": 2,
-      "gd": 7,
-      "results": "WWWD"
+      "played": 5,
+      "gf": 12,
+      "ga": 4,
+      "gd": 8,
+      "results": "WWWDW"
     },
     "Algeria": {
       "played": 4,
@@ -305,11 +305,11 @@
       "results": "LLL"
     },
     "Colombia": {
-      "played": 4,
+      "played": 5,
       "gf": 5,
       "ga": 1,
       "gd": 4,
-      "results": "WWDW"
+      "results": "WWDWD"
     },
     "England": {
       "played": 5,
@@ -342,18 +342,6 @@
   },
   "next_matches": [
     {
-      "date": "2026-07-07",
-      "team1": "Argentina",
-      "team2": "Egypt",
-      "group": null
-    },
-    {
-      "date": "2026-07-07",
-      "team1": "Switzerland",
-      "team2": "Colombia",
-      "group": null
-    },
-    {
       "date": "2026-07-09",
       "team1": "France",
       "team2": "Morocco",
@@ -361,8 +349,8 @@
     },
     {
       "date": "2026-07-10",
-      "team1": "W93",
-      "team2": "W94",
+      "team1": "Spain",
+      "team2": "Belgium",
       "group": null
     },
     {
