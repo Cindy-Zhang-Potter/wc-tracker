@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-09T05:56:10.999388+00:00",
-  "completed_matches": 96,
+  "generated_at": "2026-07-10T05:55:12.255732+00:00",
+  "completed_matches": 97,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -81,11 +81,11 @@
       "results": "DWWWL"
     },
     "Morocco": {
-      "played": 5,
+      "played": 6,
       "gf": 10,
-      "ga": 4,
-      "gd": 6,
-      "results": "DWWDW"
+      "ga": 6,
+      "gd": 4,
+      "results": "DWWDWL"
     },
     "Haiti": {
       "played": 3,
@@ -228,11 +228,11 @@
       "results": "DDL"
     },
     "France": {
-      "played": 5,
-      "gf": 14,
+      "played": 6,
+      "gf": 16,
       "ga": 2,
-      "gd": 12,
-      "results": "WWWWW"
+      "gd": 14,
+      "results": "WWWWWW"
     },
     "Senegal": {
       "played": 4,
@@ -341,12 +341,6 @@
     }
   },
   "next_matches": [
-    {
-      "date": "2026-07-09",
-      "team1": "France",
-      "team2": "Morocco",
-      "group": null
-    },
     {
       "date": "2026-07-10",
       "team1": "Spain",
