@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11T04:54:54.199624+00:00",
-  "completed_matches": 98,
+  "generated_at": "2026-07-12T05:17:59.126008+00:00",
+  "completed_matches": 100,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -67,11 +67,11 @@
       "results": "DLL"
     },
     "Switzerland": {
-      "played": 5,
-      "gf": 9,
-      "ga": 3,
+      "played": 6,
+      "gf": 10,
+      "ga": 4,
       "gd": 6,
-      "results": "DWWWD"
+      "results": "DWWWDD"
     },
     "Brazil": {
       "played": 5,
@@ -249,18 +249,18 @@
       "results": "LLL"
     },
     "Norway": {
-      "played": 5,
-      "gf": 12,
-      "ga": 9,
+      "played": 6,
+      "gf": 13,
+      "ga": 10,
       "gd": 3,
-      "results": "WWLWW"
+      "results": "WWLWWD"
     },
     "Argentina": {
-      "played": 5,
-      "gf": 12,
-      "ga": 4,
+      "played": 6,
+      "gf": 13,
+      "ga": 5,
       "gd": 8,
-      "results": "WWWDW"
+      "results": "WWWDWD"
     },
     "Algeria": {
       "played": 4,
@@ -312,11 +312,11 @@
       "results": "WWDWD"
     },
     "England": {
-      "played": 5,
-      "gf": 11,
-      "ga": 5,
+      "played": 6,
+      "gf": 12,
+      "ga": 6,
       "gd": 6,
-      "results": "WDWWW"
+      "results": "WDWWWD"
     },
     "Croatia": {
       "played": 4,
@@ -342,21 +342,9 @@
   },
   "next_matches": [
     {
-      "date": "2026-07-11",
-      "team1": "Norway",
-      "team2": "England",
-      "group": null
-    },
-    {
-      "date": "2026-07-11",
-      "team1": "Argentina",
-      "team2": "Switzerland",
-      "group": null
-    },
-    {
       "date": "2026-07-14",
-      "team1": "W97",
-      "team2": "W98",
+      "team1": "France",
+      "team2": "Spain",
       "group": null
     },
     {
