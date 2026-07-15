@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-14T04:41:29.037737+00:00",
-  "completed_matches": 100,
+  "generated_at": "2026-07-15T04:41:23.073844+00:00",
+  "completed_matches": 101,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -200,11 +200,11 @@
       "results": "DLL"
     },
     "Spain": {
-      "played": 6,
-      "gf": 11,
+      "played": 7,
+      "gf": 13,
       "ga": 1,
-      "gd": 10,
-      "results": "DWWWWW"
+      "gd": 12,
+      "results": "DWWWWWW"
     },
     "Cape Verde": {
       "played": 4,
@@ -228,11 +228,11 @@
       "results": "DDL"
     },
     "France": {
-      "played": 6,
+      "played": 7,
       "gf": 16,
-      "ga": 2,
-      "gd": 14,
-      "results": "WWWWWW"
+      "ga": 4,
+      "gd": 12,
+      "results": "WWWWWWL"
     },
     "Senegal": {
       "played": 4,
@@ -341,12 +341,6 @@
     }
   },
   "next_matches": [
-    {
-      "date": "2026-07-14",
-      "team1": "France",
-      "team2": "Spain",
-      "group": null
-    },
     {
       "date": "2026-07-15",
       "team1": "England",
