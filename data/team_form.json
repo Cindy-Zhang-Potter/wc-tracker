@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-15T04:41:23.073844+00:00",
-  "completed_matches": 101,
+  "generated_at": "2026-07-16T04:51:35.342890+00:00",
+  "completed_matches": 102,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -256,11 +256,11 @@
       "results": "WWLWWD"
     },
     "Argentina": {
-      "played": 6,
-      "gf": 13,
-      "ga": 5,
-      "gd": 8,
-      "results": "WWWDWD"
+      "played": 7,
+      "gf": 15,
+      "ga": 6,
+      "gd": 9,
+      "results": "WWWDWDW"
     },
     "Algeria": {
       "played": 4,
@@ -312,11 +312,11 @@
       "results": "WWDWD"
     },
     "England": {
-      "played": 6,
-      "gf": 12,
-      "ga": 6,
-      "gd": 6,
-      "results": "WDWWWD"
+      "played": 7,
+      "gf": 13,
+      "ga": 8,
+      "gd": 5,
+      "results": "WDWWWDL"
     },
     "Croatia": {
       "played": 4,
@@ -342,21 +342,15 @@
   },
   "next_matches": [
     {
-      "date": "2026-07-15",
-      "team1": "England",
-      "team2": "Argentina",
-      "group": null
-    },
-    {
       "date": "2026-07-18",
-      "team1": "L101",
-      "team2": "L102",
+      "team1": "France",
+      "team2": "England",
       "group": null
     },
     {
       "date": "2026-07-19",
-      "team1": "W101",
-      "team2": "W102",
+      "team1": "Spain",
+      "team2": "Argentina",
       "group": null
     }
   ]
