@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-20T05:32:00.085523+00:00",
-  "completed_matches": 103,
+  "generated_at": "2026-07-21T04:59:45.861120+00:00",
+  "completed_matches": 104,
   "total_matches": 104,
   "team_form": {
     "Mexico": {
@@ -200,11 +200,11 @@
       "results": "DLL"
     },
     "Spain": {
-      "played": 7,
+      "played": 8,
       "gf": 13,
       "ga": 1,
       "gd": 12,
-      "results": "DWWWWWW"
+      "results": "DWWWWWWD"
     },
     "Cape Verde": {
       "played": 4,
@@ -256,11 +256,11 @@
       "results": "WWLWWD"
     },
     "Argentina": {
-      "played": 7,
+      "played": 8,
       "gf": 15,
       "ga": 6,
       "gd": 9,
-      "results": "WWWDWDW"
+      "results": "WWWDWDWD"
     },
     "Algeria": {
       "played": 4,
@@ -340,12 +340,5 @@
       "results": "LLL"
     }
   },
-  "next_matches": [
-    {
-      "date": "2026-07-19",
-      "team1": "Spain",
-      "team2": "Argentina",
-      "group": null
-    }
-  ]
+  "next_matches": []
 }
